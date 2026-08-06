@@ -11,6 +11,7 @@
 :root{
   --ink:#1a2330;--muted:#5a6575;--paper:#f4f1ea;--card:#fffdf8;--line:#d8d0c2;
   --navy:#1e3a5f;--navy2:#2d5a87;--teal:#146b57;--teal2:#0e5544;--chip:#eef3f8;
+  --warn:#8a5a12;--warn-bg:#fff8eb;--warn-line:#d4a24a;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);
@@ -19,6 +20,9 @@ radial-gradient(900px 420px at 100% 0%,#e7dfd1 0%,transparent 50%),var(--paper);
 a{color:var(--teal2);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1180px;margin:0 auto;padding:2rem 1.15rem 3.5rem}
+.wrap.list{max-width:min(1720px,96vw)}
+@media(min-width:1400px){.wrap{max-width:1400px}.wrap.list{max-width:min(1720px,96vw)}}
+@media(min-width:1800px){.wrap.list{max-width:1760px}}
 .top{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center;justify-content:space-between;
 margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:2px solid var(--navy)}
 .brand{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--navy);text-decoration:none}
@@ -27,6 +31,8 @@ margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:2px solid var(--navy)}
 border:1px solid var(--navy);color:var(--navy);background:#fff;font-weight:600;font-size:.92rem;text-decoration:none}
 .nav a:hover,.btn:hover{background:var(--chip);text-decoration:none}
 .nav a.on,.btn.primary{background:var(--navy);color:#fff}
+.langs{display:inline-flex;gap:.35rem;margin-left:.25rem;padding-left:.55rem;border-left:1px solid var(--line)}
+.langs a{min-width:4.6rem;justify-content:center}
 .hero h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.8rem,4vw,2.55rem);
 margin:0 0 .5rem;color:var(--navy);letter-spacing:-.02em;line-height:1.15}
 .lead{margin:0;color:var(--muted);max-width:46rem;font-size:1.05rem}
@@ -41,7 +47,10 @@ box-shadow:0 1px 3px rgba(30,58,95,.06);display:flex;flex-direction:column;gap:.
 .dl{display:flex;flex-wrap:wrap;gap:.55rem .9rem;padding-top:.75rem;border-top:1px solid var(--line);
 font-size:.92rem;color:var(--muted)}
 .dl a{color:var(--navy);font-weight:600}
-.note{margin-top:1.5rem;padding:1rem 1.1rem;background:var(--chip);border-radius:10px;color:var(--muted);font-size:.92rem}
+.contribute{margin-top:1.5rem;padding:1.1rem 1.2rem;background:var(--card);border:1px solid var(--line);
+border-radius:10px}
+.contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
+.contribute p{margin:0;color:var(--muted);font-size:.95rem}
 footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
 .toolbar{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0 .8rem;align-items:center}
 .toolbar input,.toolbar select{font:inherit;padding:.55rem .75rem;border:1px solid var(--line);
@@ -49,6 +58,17 @@ border-radius:8px;background:#fff;color:var(--ink)}
 .toolbar input{flex:1 1 240px}
 .toolbar select{min-width:180px}
 .count{color:var(--muted);font-size:.9rem}
+.col-toggle{position:relative}
+.col-toggle > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;
+padding:.45rem .85rem;border-radius:8px;border:1px solid var(--navy);color:var(--navy);background:#fff;
+font-weight:600;font-size:.92rem;user-select:none}
+.col-toggle > summary::-webkit-details-marker{display:none}
+.col-toggle[open] > summary{background:var(--chip)}
+.col-panel{position:absolute;right:0;top:calc(100% + .35rem);z-index:20;min-width:220px;
+background:#fff;border:1px solid var(--line);border-radius:10px;padding:.65rem .75rem;
+box-shadow:0 8px 24px rgba(30,58,95,.12);display:grid;gap:.35rem}
+.col-panel label{display:flex;gap:.5rem;align-items:center;font-size:.9rem;color:var(--ink);cursor:pointer}
+.col-panel label input{accent-color:var(--navy)}
 .table-wrap{overflow:auto;max-height:min(78vh,920px);border:1px solid var(--line);border-radius:10px;background:#fff}
 table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;font-size:13px}
 th,td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
@@ -57,11 +77,14 @@ letter-spacing:.05em;z-index:2;cursor:pointer;user-select:none;white-space:nowra
 th:first-child,td:first-child{position:sticky;left:0;background:#fff;z-index:1;min-width:200px;max-width:220px;
 box-shadow:2px 0 0 var(--line);font-weight:600}
 th:first-child{z-index:3;background:#eef2f7}
+th.col-hide,td.col-hide{display:none}
 tr:hover td{background:#f7fafc}
 tr:hover td:first-child{background:#f0f5f9}
 .badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;background:var(--chip);color:var(--muted);border:1px solid var(--line)}
 .warn{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:8px;
-padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
+padding:.85rem 1rem;margin:0 0 .75rem;color:var(--muted);font-size:.93rem}
+.warn.disclaimer{background:var(--warn-bg);border-color:var(--warn-line);border-left-color:var(--warn);
+color:var(--warn);font-weight:600}
 </style>
 </head>
 <body>
@@ -73,7 +96,10 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
       <a class="on" href="index.html">Home</a>
       <a href="turkey.html">Türkiye companies</a>
       <a href="global.html">Global companies</a>
-      <a href="../tr/index.html">Türkçe</a>
+      <span class="langs" role="navigation" aria-label="Language">
+        <a class="" href="../tr/index.html" hreflang="tr" lang="tr">Türkçe</a>
+        <a class="on" href="../en/index.html" hreflang="en" lang="en">English</a>
+      </span>
     </nav>
   </div>
   <header class="hero">
@@ -81,6 +107,7 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
     <p class="lead">219 companies in Türkiye and 878 global studios/publishers (excl. Türkiye), with internship, remote work, ownership and sample games.</p>
     <p class="by">Güvenç Usanmaz · August 2026</p>
   </header>
+  <div class="warn disclaimer">Disclaimer: This directory may contain gaps or inaccuracies. Headcount, revenue/funding and internship figures are often estimates or drawn from public sources and may be outdated. There is no warranty or guarantee of completeness or correctness.</div>
   <section class="grid">
     <article class="card">
       <h2>Türkiye companies</h2>
@@ -111,8 +138,12 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
       </div>
     </article>
   </section>
-  <p class="note">UI is English/Turkish. Data is also available as CSV, Markdown, Excel and PDF.</p>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a></footer>
+  <section class="contribute">
+    <h2>Contribute</h2>
+    <p>Corrections, missing companies and fresher public data are welcome. See the <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing guide</a>.</p>
+  </section>
+  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
+  · <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a></footer>
 </div>
 
 </body>
