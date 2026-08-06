@@ -70,7 +70,7 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
   <div class="top">
     <a class="brand" href="index.html">Oyun Firmaları Atlası</a>
     <nav class="nav">
-      <a href="index.html">Oyun Firmaları Atlası</a>
+      <a href="index.html">Ana sayfa</a>
       <a class="" href="turkey.html">Türkiye firmaları</a>
       <a class="on" href="global.html">Küresel firmalar</a>
       <a href="../en/global.html">English</a>
@@ -78,13 +78,13 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
   </div>
   <header class="hero">
     <h1>Küresel firmalar</h1>
-    <p class="lead" id="lead">Türkiye’de 219, dünyada (TR hariç) 878 oyun stüdyosu/yayıncı kaydı. Staj, uzaktan çalışma, sahiplik ve örnek oyunlarla birlikte.</p>
+    <p class="lead">Türkiye dışındaki büyük stüdyolar, yayıncılar ve platformlar. Sütun başlığına tıklayarak sıralayın, arama ve bölge filtresiyle daraltın.</p>
   </header>
   <div class="warn">Türk firmalar bu listede yok — Türkiye listesine bakın. Bilinmiyor = kamuya açık kaynakta bulunamadı.</div>
   <div class="toolbar">
     <input id="q" type="search" placeholder="Firma, şehir, tür veya oyun ara…" autocomplete="off"/>
     <select id="region"><option value="">Tüm bölgeler</option></select>
-    <span class="count" id="count"></span>
+    <span class="count" id="count">…</span>
   </div>
   <div class="table-wrap">
     <table>
@@ -144,6 +144,10 @@ function render(){
 
 async function boot(){
   const res = await fetch('../data/global.tr.json');
+  if (!res.ok) {
+    document.getElementById('count').textContent = 'HTTP ' + res.status;
+    return;
+  }
   rows = await res.json();
   const regions = [...new Set(rows.map(r => r.region).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr'));
   const sel = document.getElementById('region');

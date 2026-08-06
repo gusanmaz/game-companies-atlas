@@ -43,6 +43,9 @@ UI = {
         "other_lang_href": "../en/",
         "warn_global": "Türk firmalar bu listede yok — Türkiye listesine bakın.",
         "warn_turkey": "Küresel (TR dışı) liste ayrı sayfada.",
+        "home": "Ana sayfa",
+        "lead_turkey": "Türkiye’deki oyun stüdyoları, yayıncılar ve ekosistem aktörleri. Sütun başlığına tıklayarak sıralayın, arama ve bölge filtresiyle daraltın.",
+        "lead_global": "Türkiye dışındaki büyük stüdyolar, yayıncılar ve platformlar. Sütun başlığına tıklayarak sıralayın, arama ve bölge filtresiyle daraltın.",
     },
     "en": {
         "lang": "en",
@@ -72,6 +75,9 @@ UI = {
         "other_lang_href": "../tr/",
         "warn_global": "Turkish companies are not listed here — see the Türkiye list.",
         "warn_turkey": "Global (non-TR) list is on a separate page.",
+        "home": "Home",
+        "lead_turkey": "Game studios, publishers and ecosystem actors based in Türkiye. Click a column header to sort; narrow the list with search and the region filter.",
+        "lead_global": "Major studios, publishers and platforms outside Türkiye. Click a column header to sort; narrow the list with search and the region filter.",
     },
 }
 
@@ -208,7 +214,7 @@ def build_home(lang: str) -> str:
   <div class="top">
     <a class="brand" href="index.html">{u['brand']}</a>
     <nav class="nav">
-      <a class="on" href="index.html">{u['brand']}</a>
+      <a class="on" href="index.html">{u['home']}</a>
       <a href="turkey.html">{u['turkey']}</a>
       <a href="global.html">{u['global']}</a>
       <a href="{u['other_lang_href']}index.html">{u['other_lang']}</a>
@@ -259,6 +265,7 @@ def build_home(lang: str) -> str:
 def build_list_page(lang: str, which: str) -> str:
     u = UI[lang]
     warn = u["warn_turkey"] if which == "turkey" else u["warn_global"]
+    lead = u["lead_turkey"] if which == "turkey" else u["lead_global"]
     title = f"{u['turkey'] if which == 'turkey' else u['global']} — {u['brand']}"
     cols_json = json.dumps(u["cols"], ensure_ascii=False)
     keys_json = json.dumps(u["keys"], ensure_ascii=False)
@@ -267,7 +274,7 @@ def build_list_page(lang: str, which: str) -> str:
   <div class="top">
     <a class="brand" href="index.html">{u['brand']}</a>
     <nav class="nav">
-      <a href="index.html">{u['brand']}</a>
+      <a href="index.html">{u['home']}</a>
       <a class="{'on' if which=='turkey' else ''}" href="turkey.html">{u['turkey']}</a>
       <a class="{'on' if which=='global' else ''}" href="global.html">{u['global']}</a>
       <a href="{u['other_lang_href']}{which}.html">{u['other_lang']}</a>
@@ -275,13 +282,13 @@ def build_list_page(lang: str, which: str) -> str:
   </div>
   <header class="hero">
     <h1>{u['turkey'] if which=='turkey' else u['global']}</h1>
-    <p class="lead" id="lead">{u['lead']}</p>
+    <p class="lead">{lead}</p>
   </header>
   <div class="warn">{warn} {u['unknown_note']}</div>
   <div class="toolbar">
     <input id="q" type="search" placeholder="{u['search']}" autocomplete="off"/>
     <select id="region"><option value="">{u['all_regions']}</option></select>
-    <span class="count" id="count"></span>
+    <span class="count" id="count">…</span>
   </div>
   <div class="table-wrap">
     <table>
@@ -341,6 +348,10 @@ function render(){{
 
 async function boot(){{
   const res = await fetch('../data/{which}.{lang}.json');
+  if (!res.ok) {{
+    document.getElementById('count').textContent = 'HTTP ' + res.status;
+    return;
+  }}
   rows = await res.json();
   const regions = [...new Set(rows.map(r => r.region).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'{lang}'));
   const sel = document.getElementById('region');

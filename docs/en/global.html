@@ -70,7 +70,7 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
   <div class="top">
     <a class="brand" href="index.html">Game Companies Atlas</a>
     <nav class="nav">
-      <a href="index.html">Game Companies Atlas</a>
+      <a href="index.html">Home</a>
       <a class="" href="turkey.html">Türkiye companies</a>
       <a class="on" href="global.html">Global companies</a>
       <a href="../tr/global.html">Türkçe</a>
@@ -78,13 +78,13 @@ padding:.85rem 1rem;margin:0 0 1rem;color:var(--muted);font-size:.93rem}
   </div>
   <header class="hero">
     <h1>Global companies</h1>
-    <p class="lead" id="lead">219 companies in Türkiye and 878 global studios/publishers (excl. Türkiye), with internship, remote work, ownership and sample games.</p>
+    <p class="lead">Major studios, publishers and platforms outside Türkiye. Click a column header to sort; narrow the list with search and the region filter.</p>
   </header>
   <div class="warn">Turkish companies are not listed here — see the Türkiye list. Unknown = not found in public sources.</div>
   <div class="toolbar">
     <input id="q" type="search" placeholder="Search company, city, genre or game…" autocomplete="off"/>
     <select id="region"><option value="">All regions</option></select>
-    <span class="count" id="count"></span>
+    <span class="count" id="count">…</span>
   </div>
   <div class="table-wrap">
     <table>
@@ -144,6 +144,10 @@ function render(){
 
 async function boot(){
   const res = await fetch('../data/global.en.json');
+  if (!res.ok) {
+    document.getElementById('count').textContent = 'HTTP ' + res.status;
+    return;
+  }
   rows = await res.json();
   const regions = [...new Set(rows.map(r => r.region).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'en'));
   const sel = document.getElementById('region');
