@@ -91,7 +91,7 @@ LablaGames,Other cities,Bursa (Osmangazi),unknown,11–50 range,unknown,https://
 Keby Games,Other cities,Bursa (Nilüfer),2017,unknown,unknown,https://www.keby.net,mobile multiplayer / casual,Nightcore; VegaOnline; Word Busters; Wonder Boys,unknown,unknown,independent (Baypro),Mobile studio based in Bursa.
 Click Game Studio,Other cities,Bursa (Nilüfer),~2020,unknown,VOR 4.5M TL + Netmarble Turkey investment (2021),,hyper-casual mobile,unknown,unknown,unknown,Netmarble Turkey related,Bursa hyper-casual; had joined the Netmarble studio network.
 SPT Studios,Other cities,Muğla & Bursa,2024,small,unknown,https://sptstudios.com,mobile casual / shooter / puzzle,Glow Tiles; Squad Ops; Boost Raid; Lost Haven,unknown,unknown,independent,Two-city independent mobile studio.
-Happy Crab,Other cities,Kocaeli (Technology Valley),2020,unknown,unknown,,mobile development/publishing,unknown,unknown,unknown,independent,AA news; Silicon Valley.
+Happy Crab,Other cities,Kocaeli (Technology Valley),2020,unknown,unknown,https://happycrab.com.tr,mobile development/publishing,Zatonya Chasing Asteroid; CDS - Car Drifting Simulator 2023,unknown,unknown,independent,AA news story; Bilişim Vadisi. The official site's TLS certificate has been expired since 2023.
 Spell Factory,Other cities,Gebze / Informatics Valley (Kocaeli),~2024/2025,~7 founding team,unknown,https://spellfactory.games,platformer; Web3,Clashub; The Infected Soul,career page available,unknown,independent,Not Eskişehir; Gebze.
 ATTA Games,Other cities,Antalya (OSB Technopark / Döşemealtı),2024,~6,unknown,https://atta.games,puzzle / hybrid-casual,unknown,unknown,unknown,independent,Antalya OSB Technopark studio.
 32play,Other cities,Antalya (Konyaaltı),2022,~2,$2M fund (LinkedIn),https://32play.pro,game tools / resources,unknown,unknown,unknown,independent,Antalya + US presence.
@@ -100,7 +100,7 @@ Pokuch,Other cities,Trabzon,2019,~10,unknown,https://pokuch.com,PC survival adve
 Feelcrafters,Other cities,Gaziantep (Teknopark),~2023,unknown,unknown,https://feelcrafters.com,mobile puzzle,unknown,There is a gradual hiring process; internship details unknown,unknown,independent,Gaziantep Technopark studio.
 Rubedo Games,Other cities,Mersin,2022,~4,unknown,https://store.steampowered.com/search/?developer=Rubedo%20Games,PC indie,Soulbind: Tales of the Underworld,unknown,unknown,independent,Mersin HQ; international presence.
 Arkhe Games,Other cities,Mersin (office; remote team),2021,~34 (company statement; 3 continents),50M+ downloads / 140 countries (company),https://arkhegames.com,mobile hyper/hybrid,Human Fortune; Battery Run,unknown,remote-heavy + Mersin office,independent,Mersin-based scaled mobile studio.
-Wide Game Studio,Other cities,Kayseri (AGÜ),2019,~9,$1.2M valuation claim (2024),,AR/VR,Flare Frenzy,unknown,unknown,independent,AA / Workup Gaming visibility.
+Wide Game Studio,Other cities,Kayseri (AGÜ),2019,~9,$1.2M valuation claim (2024),https://widegamestudio.com,AR/VR,Flare Frenzy; Flare Frenzy 2; Santa Climber; GRAVI; Wizard's Legacy,unknown,unknown,independent,AA / Workup Gaming visibility.
 Kirpy Games,Other cities,Adana (Seyhan),2021,unknown,unknown,https://kirpygames.com,casual / hyper-casual mobile,unknown,unknown,unknown,independent,Adana-based mobile studio.
 imaginite Games Studio,Other cities,Adana (Çukurova Teknopark),2015,unknown,unknown,,mobile + animation,unknown,unknown,unknown,independent,Activity could not be verified in 2026; historical record.
 Hookey Games,Other cities,Konya (Selçuklu),2020,~5,unknown,https://hookeystudio.com,mobile,unknown,unknown,unknown,independent,Small mobile studio based in Konya.
@@ -122,10 +122,10 @@ Playable Factory,Istanbul,Istanbul,unknown,unknown,Tamatem acquisition (industry
 Hungri Games,Istanbul,Istanbul (+ Belfast),2019,unknown,unknown,https://hungrigames.com,mid-core / RPG / multiplayer mobile,unknown,unknown (career page exists),unknown,independent,"Istanbul-based, international team."
 Biotech Gameworks,Istanbul,Istanbul,2023,~10 (LinkedIn),unknown,https://biotechgameworks.com,PC simulation / cooking,Kebab Chefs!,unknown,unknown,independent,Kebab Chefs! cooking/sim.
 Abrakadabra Games,Istanbul,Istanbul,unknown,unknown,funded (industry listings),https://abrakadabragames.io,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
-Apphic Games,Istanbul,Istanbul,unknown,unknown,funded (industry listings),,mobile,unknown,unknown,unknown,independent,Early stage Istanbul studio.
-Studio Billion,Istanbul,Istanbul,unknown,unknown,funded (industry listings),,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
+Apphic Games,Istanbul,Istanbul,unknown,unknown,funded (industry listings),https://apphic.com,mobile,Nusrat; Fetih İstanbul,unknown,unknown,independent,Early stage Istanbul studio.
+Studio Billion,Istanbul,Istanbul,2017,unknown,funded (industry listings),https://studiobillion.com,mobile casual / hypercasual / simulation,Construction Simulator 3D; HR Master; Spin Warriors Istanbul; Word Hunters,unknown (career page exists),unknown,independent,Istanbul mobile studio.
 Gnarly Games,Istanbul,Istanbul,unknown,unknown,WePlay investment (industry),https://gnarlyteam.com,casual mobile,Frontline Heroes; Agent Hunt; Sea Lords,unknown,unknown,independent,Fatih/Balat; WePlay investment history.
-Gulliver's Games,Istanbul,Istanbul,unknown,unknown,funded (industry),,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
+Gulliver's Games,Istanbul,Istanbul,2019,unknown,funded (industry),https://gullivers.games,mobile word / puzzle / tycoon,Word Tiles GO; Restaurant Tycoon; Plant Shop Tycoon,unknown (career page exists),unknown,independent,Istanbul mobile studio.
 Veloxia,Istanbul,Istanbul,unknown,unknown,Boğaziçi Ventures portfolio,https://veloxia.co,idle / simulation / MOBA,Space Colony: Idle; Idle Port; Embershard,unknown,remote-friendly (career text),independent,Levent; aligned with BV portfolio memorial.
 Soft Towel Games,Istanbul,Istanbul,unknown,~10 (LinkedIn),unknown,https://softtowelgames.com,mobile word / puzzle,Words of Paradise; Calming Word Puzzles,unknown,unknown,independent,Şişli + Yeşilköy; Kontra Digital.
 Hyper Bandit Games,Istanbul,Istanbul,unknown,unknown,unknown,,hypercasual,unknown,unknown,unknown,independent,Istanbul hypercasual studio.
@@ -137,21 +137,21 @@ Nomad Monkey,Istanbul,Istanbul,2023,1–10 (LinkedIn),unknown,https://nomadmonke
 GameGuru,Istanbul,Istanbul,~2010 (site); some sources 2014,~19 (company About),500M+ downloads / 5M+ DAU statement (About),https://gameguru.net,hypercasual,Slap Kings; Fruit Clinic; Flick Goal; Street Hustle; Army Commander,unknown,unknown,independent,Ayazağa; long-term studio focused on hypercasual.
 Curse Game Studio,Istanbul,Istanbul,2019,unknown,unknown,,hypercasual 3D,unknown,unknown,unknown,independent,3D hypercasual focused.
 LuLu Games,Istanbul,Istanbul,2022,small,unknown,,mobile,unknown,unknown,unknown,independent,New studio appearing in industry lists.
-Metaverse Game Studios,Istanbul,Istanbul,unknown,unknown,investment round (2022 industry news),,metaverse / game,unknown,unknown,unknown,independent,Name appears in industry investment news.
-Phoelix Games,Istanbul,Istanbul,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
+Metaverse Game Studios,Istanbul,Istanbul,2020,unknown,investment round (2022 industry news),https://angelicthegame.com,turn-based strategy RPG,Angelic: Dark Symphony,unknown,unknown,independent,Renamed Angelicore Game Studios in 2026; US-headquartered distributed studio with an Istanbul team.
+Phoelix Games,Istanbul,Istanbul,unknown,unknown,unknown,https://phoelixgames.com,mobile,Excavator Simulator 2025,unknown,unknown,independent,Istanbul mobile studio.
 OXS Games,Istanbul,Istanbul,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
 SekGames,Istanbul,Istanbul,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
 Wendigo Games,Istanbul,Istanbul,unknown,unknown,unknown,,game,unknown,unknown,unknown,independent,Istanbul studio.
-Overbaked Studio,Istanbul,Istanbul,2026,unknown,unknown,,game,unknown,unknown,unknown,independent,Newly established studio.
-Rotten Games,Istanbul,Istanbul,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Istanbul mobile studio.
+Overbaked Studio,Istanbul,Istanbul,2026,unknown,unknown,https://overbaked.studio,game,unknown,unknown,unknown,independent,Newly established studio.
+Rotten Games,Istanbul,Istanbul,unknown,unknown,unknown,https://rotten.games,mobile puzzle / hybrid-casual,Quick Chess; Ball Climber,unknown,unknown,independent,Istanbul mobile studio.
 Deneb Games,Istanbul,Istanbul / Turkey,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Turkey-based mobile studio.
-Rotatelab,Istanbul,Istanbul / Turkey,unknown,unknown,unknown,,mobile,unknown,unknown,unknown,independent,Turkey mobile studio.
+Rotatelab,Istanbul,Istanbul / Turkey,unknown,unknown,unknown,https://rotatelab.com,mobile,Cube Land,unknown,unknown,independent,Turkey mobile studio.
 Nokta Games,Ankara,Ankara,2017,~10–20 (LinkedIn),Supermarket Simulator millions of players; Steam hit,https://noktagames.com,PC/console simulation,Supermarket Simulator; Toy Of War,unknown,unknown,independent,Supermarket Simulator 1.0; console port partnership news.
 skgames,Ankara,Ankara,2014,unknown,Traffic Rider hundreds of millions of downloads (industry),https://skgames.net,mobile racing / arcade,Traffic Rider; Traffic Racer; Wings on Fire,unknown (career page exists),unknown,independent,Soner Kara; long-lasting mobile racing hits.
 Curve Animation,Ankara,Ankara,2014,~16 (LinkedIn),Liar's Bar viral success,https://curve.com.tr,animation + game,Liar's Bar; Chicken Away,unknown (career page exists),unknown,independent,Animation background; game visibility with Liar's Bar.
-Pixega Studio,Ankara,Ankara,unknown,unknown,unknown,,game,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
-Zibumi,Ankara,Ankara (METU Technopark reference),~2008,unknown,unknown,,casual / browser,2Seksen; Monster Kartz,yes — TOGED internship history,unknown,independent,Early stage Ankara studio; current events limited.
-2DOT Games,Ankara,Ankara (METU ATOM),unknown,unknown,unknown,,game,unknown,unknown,unknown,independent,ATOM ecosystem studio.
+Pixega Studio,Ankara,Ankara,2015,unknown,unknown,https://www.pixegastudio.com,game development / game art / VR / AR,Twelve Labours of Hercules,yes — TOGED internship history,unknown,independent,TOGED internship list.
+Zibumi,Ankara,Ankara (METU Technopark reference),~2008,unknown,unknown,,casual / browser,2Seksen; Monster Kartz,yes — TOGED internship history,unknown,independent,"Early-era Ankara studio; acquired by Esri in 2020, continues as Esri R&D Center Ankara."
+2DOT Games,Ankara,Ankara (METU ATOM),unknown,unknown,unknown,https://2dotgames.com,PC / mobile indie,Unbelievers,unknown,unknown,independent,ATOM ecosystem studio.
 Celtwood Games,Ankara,Ankara (METU ATOM),unknown,unknown,unknown,,game,unknown,unknown,unknown,independent,ATOM ecosystem studio.
 Skyloft Studios,Izmir,Izmir,2015,~10–20 (LinkedIn),unknown,https://skyloftstudios.com,hypercasual / hybrid / mid-core,Hyper Survive 3D; Hyper Knight,unknown,unknown,independent (BoomHits shared office),Office merger with BoomHits; site under construction.
 BoomHits,Izmir,Izmir (+ UK/Poland hub),2021,small (LinkedIn ~3; uncertain after BoomBit merger),70M+ download claim; BoomBit subsidiary,https://boomhits.com,hypercasual / idle / hybrid publishing,Shoe Race; Cat Life Sim; Crazy Traffic Control; Hyper Touchdown 3D,unknown,unknown,BoomBit subsidiary,BoomBit subsidiary; Izmir+UK+PL hub.
@@ -159,13 +159,13 @@ Joinco Games,Izmir,Izmir (Aegean Technopark / Bornova),2022,~10–20 (LinkedIn),
 Teos Games,Izmir,Izmir,2021,~15–18 (site 15+; Tracxn ~18),unknown,https://teosgamestudio.com,mobile puzzle / brain-test; permanent game goal,Help Me,career page available,remote-heavy (company statement),independent,Izmir + remote model site statement.
 Room Games,Izmir,Izmir,2022,~11 (LinkedIn),unknown,https://roomgames.co,PC/console; hyper-realistic RC / multiplayer,Recharge,yes — Intern Game Tester (site team list),unknown,independent,Izmir-based indie; Steam Recharge; Gamescom 2026 İZKA nominee.
 HOGO Games,Other cities,Kocaeli,unknown,unknown,~$5M valuation round (2025; Red Axe + angels),https://hogogames.com,PC + mobile,Marble Race; Travel Jam!; Fill The Bucket,unknown,unknown,independent,Cross-platform; growing focused on PC.
-Red Axe Games,Other cities,Antalya,unknown,unknown,unknown (investor in HOGO),,PC simulation / publishing,unknown,unknown,unknown,independent,Antalya; Steam sim / publisher profile.
+Red Axe Games,Other cities,Antalya,2023,unknown,unknown (investor in HOGO),https://redaxegames.com,PC simulation / publishing,Car For Sale Simulator 2023; Gym Simulator 24; Banker Simulator; Car Service Simulator,unknown,unknown,independent,Antalya; Steam sim / publisher profile.
 Elite Games,Ankara,Ankara,unknown,unknown,unknown,,game,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
 Black COCO,Ankara,Ankara / Turkey,unknown,unknown,unknown,,game,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
 Infosfer,Ankara,Ankara,unknown,unknown,unknown,,game / software,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
 DGR Project,Ankara,Ankara / Turkey,unknown,unknown,unknown,,game,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
-SanLab,Ankara,Ankara,unknown,unknown,unknown,,simulation / serious,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list; serious/sim.
-Oldmoustache,Istanbul,Istanbul / Turkey,unknown,unknown,unknown,,game,unknown,yes — TOGED internship history,unknown,independent,TOGED internship list.
+SanLab,Ankara,Ankara,unknown,unknown,unknown,https://sanlab.net,simulation / serious,unknown,yes — TOGED internship history,unknown,independent,"On the TOGED internship list; serious/sim. Per the official site, headquarters is Istanbul (Kartal)."
+Oldmoustache,Istanbul,Istanbul / Turkey,2014,unknown,unknown,https://www.clockwizardgames.com,game,No70: Eye of Basir; Haunt Chaser; Demonologist,yes — TOGED internship history,unknown,independent,On the TOGED internship list; continues under the name Clock Wizard Games.
 Unico Studio,Istanbul,Istanbul (+ Palo Alto; Ankara presence),2018,~77–100+ (LinkedIn ~77; site 100+),1.6B+ download claim,https://unicostudio.co,casual puzzle,Brain Test; Woody Sort; 2248; Screw Out 3D; Who is?; Word Pearls,unknown (LinkedIn Intern record; career page to be monitored),remote-first / remote-first (company statement; has TR offices),independent,"Site: 1.6B+ installs, 50+ games; Palo Alto HQ + TR team dominant."
 Gamegos,Istanbul,Istanbul (Ataşehir),2006,~40 (LinkedIn),unknown,https://www.gamegos.com,casual simulation / cooking,Cafeland; Manor Cafe; Adventure Bay; Marketland; Fashland,unknown,unknown,independent,Facebook social hit → mobile F2P; Amsterdam asset on LinkedIn.
 Fiber Games,Istanbul,Istanbul,2018,~18 (LinkedIn),BV/Arz seed; total fund ~$1M range (LinkedIn); early BV 3M TL news,https://www.fibergames.com.tr,hyper/hybrid-casual,Weld It 3D; Beauty Center; Kral Şakir: Adventure Island; Opet Ultra Race,unknown,unknown,independent,Kozyatağı; Rollic publishing partnership history; claim of 200+ prototypes (BV).
@@ -191,11 +191,11 @@ Quok Games,Ankara,Ankara,2020,unknown,unknown,,mobile,unknown,unknown,unknown,in
 396 Animation & Game Studios,Eskişehir,Eskişehir (ATAP Anadolu Technopark),2018,~26,unknown,https://www.linkedin.com/company/396-animation-and-game-studios,animation + game production,TRT Çocuk: Anadolu Rock and Tuhafiye; Mercanya; Akıncı,unknown,unknown,independent,"At ATAP; primarily local publishing/animation, also involved in game production."
 Craftbridge Games,Eskişehir,Eskişehir (ATAP Software Tower / EOSB),unknown,1–10,unknown,https://craftbridgegames.com,PC indie / side-scroller,The Carnival of Company; Ginga Cantina,unknown,unknown,independent,ATAP company CRAFTBRIDGE Bilişim; published on Steam.
 SensiBall VR,Eskişehir,Eskişehir (ATAP Anadolu Technopark),unknown,unknown,unknown,https://sensiballvr.com,VR / serious games / sports cognitive training,SensiBallVR platform,unknown,unknown,independent,VR for cognitive performance in football; game engine/XR intersection.
-Skunkworks Studios,Eskişehir,Eskişehir,~2024,1–10,unknown,,PC indie,Master of... (Steam Debut Fest),unknown,unknown,independent,Small indie based in Eskişehir; Steam releases.
+Skunkworks Studios,Eskişehir,Eskişehir,~2024,1–10,unknown,,PC indie,Master of Cigkofte; Craft & Deliver; The Dismissed Case: Black Hollow,unknown,unknown,independent,Small indie based in Eskişehir; Steam releases.
 Fateloom,Eskişehir,Eskişehir,~2025,1–10,unknown,,game tools / VFX / asset,Godot VFX pack; Audio Looper,unknown,unknown,independent,Eskişehir team focused on game development tools and VFX.
 ValenGate Game Studio,Eskişehir,Eskişehir,2024,1–10,unknown,,game,unknown,unknown,unknown,independent,New studio based in Eskişehir.
 Ash & Pause,Eskişehir,Eskişehir,2025,~5,unknown,https://www.ashandpause.com,PC indie / multiplayer platformer,TaterUp; Loop 13,unknown,unknown,independent,Icarus community origin; TaterUp on Steam.
-Narradive Studios,Eskişehir,Eskişehir office (HQ Istanbul reference),2025,1–10,unknown,,narrative indie,Will You Be My Disciple?,unknown,unknown,independent,Team in Eskişehir; narrative dark comedy.
+Narradive Studios,Eskişehir,Eskişehir office (HQ Istanbul reference),2025,1–10,unknown,https://narradive.com,narrative indie,Will You Be My Disciple?; Command Pocket,unknown,unknown,independent,Team in Eskişehir; narrative dark comedy.
 Lumos İnteraktif,Eskişehir,Eskişehir (ATAP),2023,unknown,unknown,,interactive / animation / media,unknown,unknown,unknown,independent,Interactive media at ATAP; intersection of games and animation.
 Resimli Filim,Eskişehir,Eskişehir (ATAP),unknown,unknown,unknown,http://www.resimlifilim.com,animation studio,unknown,unknown,unknown,independent,Not a pure game studio; a well-established player in the Eskişehir animation ecosystem.
 Koala Film Stüdyo,Eskişehir,Eskişehir (ATAP),unknown,unknown,unknown,,animation / film,unknown,unknown,unknown,independent,ATAP animation company; involved in creative industry discussions.
