@@ -8,32 +8,27 @@ on:
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
+# Plain static HTML on the gh-pages branch. No Jekyll, no deploy-pages queue:
+# the action just publishes the docs/ folder as the site root.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Pushes queue instead of cancelling each other. Cancelled runs used to be
-# reported as build failures even when the following run published fine.
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v5
+      - name: Mark docs as plain static (skip Jekyll)
+        run: touch docs/.nojekyll
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          path: docs
-      - id: deployment
-        uses: actions/deploy-pages@v5
-        with:
-          # GitHub's Pages queue sometimes sits in deployment_queued for longer
-          # than the action's 10-minute default, which then cancels a healthy deploy.
-          timeout: 1800000
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: true
+          enable_jekyll: false
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
