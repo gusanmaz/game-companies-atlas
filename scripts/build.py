@@ -28,18 +28,19 @@ CONTRIBUTE_URL = "https://github.com/gusanmaz/game-companies-atlas/blob/main/CON
 # spare, keeping year and headcount narrow.
 # Every column is visible by default; users may hide or reorder them from the column manager.
 COLUMN_DEFS = [
-    ("company",    "Firma",         "Company",            94, 30, "c-name"),
+    ("company",    "Firma",         "Company",            94, 28, "c-name"),
     ("region",     "Bölge",         "Region",             88,  4, "c-mid"),
-    ("city",       "Şehir",         "City",               94,  6, "c-mid"),
+    ("city",       "Şehir",         "City",               94,  5, "c-mid"),
     ("founded",    "Kuruluş",       "Founded",            88,  2, "c-num"),
     ("employees",  "Çalışan",       "Employees",         100,  3, "c-num"),
-    ("funding",    "Gelir / fon",   "Revenue / funding",  92, 11, "c-long"),
-    ("genres",     "Tür",           "Genres",            100,  8, "c-mid"),
-    ("games",      "Örnek oyunlar", "Sample games",       96, 13, "c-long"),
+    ("funding",    "Gelir / fon",   "Revenue / funding",  92, 10, "c-long"),
+    ("email",      "E-posta",       "Email",             120,  8, "c-long"),
+    ("genres",     "Tür",           "Genres",            100,  7, "c-mid"),
+    ("games",      "Örnek oyunlar", "Sample games",       96, 14, "c-long"),
     ("internship", "Staj",          "Internship",        104,  3, "c-mid"),
     ("remote",     "Uzaktan",       "Remote",             86,  2, "c-mid"),
-    ("ownership",  "Sahiplik",      "Ownership",         100,  7, "c-mid"),
-    ("notes",      "Not",           "Notes",             118, 25, "c-long"),
+    ("ownership",  "Sahiplik",      "Ownership",         100,  6, "c-mid"),
+    ("notes",      "Not",           "Notes",             118, 22, "c-long"),
 ]
 
 COLUMN_KEYS = [c[0] for c in COLUMN_DEFS]
@@ -55,7 +56,7 @@ def column_meta(lang: str) -> list[dict]:
 
 # Bumped whenever the default column set changes so that stale localStorage
 # values cannot trap returning visitors in an outdated layout.
-STORAGE_VERSION = "v2"
+STORAGE_VERSION = "v3"
 
 UI = {
     "tr": {
@@ -68,7 +69,7 @@ UI = {
         "global": "Küresel firmalar",
         "browse": "Tabloda gez",
         "download": "İndir",
-        "search": "Firma, şehir, tür veya oyun ara…",
+        "search": "Firma, şehir, tür, oyun veya e-posta ara…",
         "all_regions": "Tüm bölgeler",
         "records": "kayıt",
         "weak": "zayıf veri",
@@ -157,7 +158,7 @@ UI = {
         "global": "Global companies",
         "browse": "Browse table",
         "download": "Download",
-        "search": "Search company, city, genre or game…",
+        "search": "Search company, city, genre, game or email…",
         "all_regions": "All regions",
         "records": "records",
         "weak": "weak data",
@@ -373,6 +374,8 @@ min-width:var(--tmin,900px);font-size:13.5px}
 .atlas th,.atlas td{text-align:left;vertical-align:top;border-bottom:1px solid #e9e4da;overflow-wrap:anywhere}
 .atlas td{padding:8px 11px}
 .atlas td.c-num{font-variant-numeric:tabular-nums}
+.em-link{font-weight:600;word-break:break-all}
+.em-role{color:var(--muted);font-size:.88em;font-weight:500}
 .atlas thead th{position:sticky;top:0;z-index:3;padding:0;background:#e7edf5;
 border-bottom:2px solid var(--navy2)}
 .th-btn{display:flex;align-items:flex-start;gap:.3rem;width:100%;padding:9px 10px;border:0;background:transparent;
@@ -445,6 +448,7 @@ def load_csv(path: Path, lang: str) -> list[dict]:
             "employees": "Çalışan",
             "funding": "Gelir_fon",
             "web": "Web",
+            "email": "E-posta",
             "genres": "Türler",
             "games": "Örnek_oyunlar",
             "internship": "Staj",
@@ -461,6 +465,7 @@ def load_csv(path: Path, lang: str) -> list[dict]:
             "employees": "Employees",
             "funding": "Revenue_funding",
             "web": "Web",
+            "email": "Email",
             "genres": "Genres",
             "games": "Sample_games",
             "internship": "Internship",
@@ -1037,6 +1042,18 @@ function cellHtml(r, k){
     const tip = host ? ' title="' + esc(host) + '"' : '';
     return '<a href="' + esc(r.web) + '" target="_blank" rel="noopener"' + tip + '>' +
       esc(r.company) + '</a>';
+  }
+  if (k === 'email') {
+    const raw = String(r.email || '').trim();
+    if (!raw || unknownish(raw)) return esc(raw || '—');
+    return raw.split(';').map(function(part){
+      const t = part.trim();
+      if (!t) return '';
+      const m = t.match(/^([^\s(;]+@[^\s(;]+)\s*(?:\(([^)]+)\))?/);
+      if (!m) return esc(t);
+      const role = m[2] ? ' <span class="em-role">(' + esc(m[2]) + ')</span>' : '';
+      return '<a class="em-link" href="mailto:' + esc(m[1]) + '">' + esc(m[1]) + '</a>' + role;
+    }).filter(Boolean).join('; ');
   }
   return esc(r[k]);
 }

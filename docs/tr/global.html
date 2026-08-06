@@ -142,6 +142,8 @@ min-width:var(--tmin,900px);font-size:13.5px}
 .atlas th,.atlas td{text-align:left;vertical-align:top;border-bottom:1px solid #e9e4da;overflow-wrap:anywhere}
 .atlas td{padding:8px 11px}
 .atlas td.c-num{font-variant-numeric:tabular-nums}
+.em-link{font-weight:600;word-break:break-all}
+.em-role{color:var(--muted);font-size:.88em;font-weight:500}
 .atlas thead th{position:sticky;top:0;z-index:3;padding:0;background:#e7edf5;
 border-bottom:2px solid var(--navy2)}
 .th-btn{display:flex;align-items:flex-start;gap:.3rem;width:100%;padding:9px 10px;border:0;background:transparent;
@@ -230,7 +232,7 @@ color:var(--warn);font-weight:600}
       <div class="filters" id="filters">
         <label class="field field-search">
           <span class="flabel">Ara</span>
-          <input id="q" type="search" placeholder="Firma, şehir, tür veya oyun ara…" autocomplete="off"/>
+          <input id="q" type="search" placeholder="Firma, şehir, tür, oyun veya e-posta ara…" autocomplete="off"/>
         </label>
         <label class="field">
           <span class="flabel">Bölge</span>
@@ -331,11 +333,11 @@ color:var(--warn);font-weight:600}
   <footer class="site-foot"><p class="foot-meta">GitHub Pages ile yayınlanır</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Kaynak kod</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı rehberi</a></nav></footer>
 </div>
 <script>
-const CDEF = [{"k": "company", "label": "Firma", "min": 94, "w": 30, "cls": "c-name"}, {"k": "region", "label": "Bölge", "min": 88, "w": 4, "cls": "c-mid"}, {"k": "city", "label": "Şehir", "min": 94, "w": 6, "cls": "c-mid"}, {"k": "founded", "label": "Kuruluş", "min": 88, "w": 2, "cls": "c-num"}, {"k": "employees", "label": "Çalışan", "min": 100, "w": 3, "cls": "c-num"}, {"k": "funding", "label": "Gelir / fon", "min": 92, "w": 11, "cls": "c-long"}, {"k": "genres", "label": "Tür", "min": 100, "w": 8, "cls": "c-mid"}, {"k": "games", "label": "Örnek oyunlar", "min": 96, "w": 13, "cls": "c-long"}, {"k": "internship", "label": "Staj", "min": 104, "w": 3, "cls": "c-mid"}, {"k": "remote", "label": "Uzaktan", "min": 86, "w": 2, "cls": "c-mid"}, {"k": "ownership", "label": "Sahiplik", "min": 100, "w": 7, "cls": "c-mid"}, {"k": "notes", "label": "Not", "min": 118, "w": 25, "cls": "c-long"}];
+const CDEF = [{"k": "company", "label": "Firma", "min": 94, "w": 28, "cls": "c-name"}, {"k": "region", "label": "Bölge", "min": 88, "w": 4, "cls": "c-mid"}, {"k": "city", "label": "Şehir", "min": 94, "w": 5, "cls": "c-mid"}, {"k": "founded", "label": "Kuruluş", "min": 88, "w": 2, "cls": "c-num"}, {"k": "employees", "label": "Çalışan", "min": 100, "w": 3, "cls": "c-num"}, {"k": "funding", "label": "Gelir / fon", "min": 92, "w": 10, "cls": "c-long"}, {"k": "email", "label": "E-posta", "min": 120, "w": 8, "cls": "c-long"}, {"k": "genres", "label": "Tür", "min": 100, "w": 7, "cls": "c-mid"}, {"k": "games", "label": "Örnek oyunlar", "min": 96, "w": 14, "cls": "c-long"}, {"k": "internship", "label": "Staj", "min": 104, "w": 3, "cls": "c-mid"}, {"k": "remote", "label": "Uzaktan", "min": 86, "w": 2, "cls": "c-mid"}, {"k": "ownership", "label": "Sahiplik", "min": 100, "w": 6, "cls": "c-mid"}, {"k": "notes", "label": "Not", "min": 118, "w": 22, "cls": "c-long"}];
 const T = {"records": "kayıt", "sorted_by": "Sıralama", "sort_asc": "artan", "sort_desc": "azalan", "active_filters": "aktif filtre", "sort_dir_label": "Sıralama yönünü değiştir", "sort_by_col": "Sütuna göre sırala", "col_locked": "Bu sütun her zaman görünür", "col_visible": "Sütunu göster", "move_up": "Yukarı taşı", "move_down": "Aşağı taşı", "columns_count": "sütun görünür", "all_regions": "Tüm bölgeler", "all_cities": "Tüm şehirler", "all_genres": "Tüm türler", "all_ownership": "Tüm sahiplik türleri", "year_from": "en erken", "year_to": "en geç"};
 const LANG = "tr";
 const SRC = "../data/global.tr.json";
-const SKEY = "atlas-cols-global-tr-v2";
+const SKEY = "atlas-cols-global-tr-v3";
 const SKEY_OLD = "atlas-cols-global-tr";
 
 const ALL_KEYS = CDEF.map(function(c){ return c.k; });
@@ -777,6 +779,18 @@ function cellHtml(r, k){
     const tip = host ? ' title="' + esc(host) + '"' : '';
     return '<a href="' + esc(r.web) + '" target="_blank" rel="noopener"' + tip + '>' +
       esc(r.company) + '</a>';
+  }
+  if (k === 'email') {
+    const raw = String(r.email || '').trim();
+    if (!raw || unknownish(raw)) return esc(raw || '—');
+    return raw.split(';').map(function(part){
+      const t = part.trim();
+      if (!t) return '';
+      const m = t.match(/^([^\s(;]+@[^\s(;]+)\s*(?:\(([^)]+)\))?/);
+      if (!m) return esc(t);
+      const role = m[2] ? ' <span class="em-role">(' + esc(m[2]) + ')</span>' : '';
+      return '<a class="em-link" href="mailto:' + esc(m[1]) + '">' + esc(m[1]) + '</a>' + role;
+    }).filter(Boolean).join('; ');
   }
   return esc(r[k]);
 }

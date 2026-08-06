@@ -142,6 +142,8 @@ min-width:var(--tmin,900px);font-size:13.5px}
 .atlas th,.atlas td{text-align:left;vertical-align:top;border-bottom:1px solid #e9e4da;overflow-wrap:anywhere}
 .atlas td{padding:8px 11px}
 .atlas td.c-num{font-variant-numeric:tabular-nums}
+.em-link{font-weight:600;word-break:break-all}
+.em-role{color:var(--muted);font-size:.88em;font-weight:500}
 .atlas thead th{position:sticky;top:0;z-index:3;padding:0;background:#e7edf5;
 border-bottom:2px solid var(--navy2)}
 .th-btn{display:flex;align-items:flex-start;gap:.3rem;width:100%;padding:9px 10px;border:0;background:transparent;
@@ -230,7 +232,7 @@ color:var(--warn);font-weight:600}
       <div class="filters" id="filters">
         <label class="field field-search">
           <span class="flabel">Search</span>
-          <input id="q" type="search" placeholder="Search company, city, genre or game…" autocomplete="off"/>
+          <input id="q" type="search" placeholder="Search company, city, genre, game or email…" autocomplete="off"/>
         </label>
         <label class="field">
           <span class="flabel">Region</span>
@@ -331,11 +333,11 @@ color:var(--warn);font-weight:600}
   <footer class="site-foot"><p class="foot-meta">Hosted on GitHub Pages</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Source code</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide</a></nav></footer>
 </div>
 <script>
-const CDEF = [{"k": "company", "label": "Company", "min": 94, "w": 30, "cls": "c-name"}, {"k": "region", "label": "Region", "min": 88, "w": 4, "cls": "c-mid"}, {"k": "city", "label": "City", "min": 94, "w": 6, "cls": "c-mid"}, {"k": "founded", "label": "Founded", "min": 88, "w": 2, "cls": "c-num"}, {"k": "employees", "label": "Employees", "min": 100, "w": 3, "cls": "c-num"}, {"k": "funding", "label": "Revenue / funding", "min": 92, "w": 11, "cls": "c-long"}, {"k": "genres", "label": "Genres", "min": 100, "w": 8, "cls": "c-mid"}, {"k": "games", "label": "Sample games", "min": 96, "w": 13, "cls": "c-long"}, {"k": "internship", "label": "Internship", "min": 104, "w": 3, "cls": "c-mid"}, {"k": "remote", "label": "Remote", "min": 86, "w": 2, "cls": "c-mid"}, {"k": "ownership", "label": "Ownership", "min": 100, "w": 7, "cls": "c-mid"}, {"k": "notes", "label": "Notes", "min": 118, "w": 25, "cls": "c-long"}];
+const CDEF = [{"k": "company", "label": "Company", "min": 94, "w": 28, "cls": "c-name"}, {"k": "region", "label": "Region", "min": 88, "w": 4, "cls": "c-mid"}, {"k": "city", "label": "City", "min": 94, "w": 5, "cls": "c-mid"}, {"k": "founded", "label": "Founded", "min": 88, "w": 2, "cls": "c-num"}, {"k": "employees", "label": "Employees", "min": 100, "w": 3, "cls": "c-num"}, {"k": "funding", "label": "Revenue / funding", "min": 92, "w": 10, "cls": "c-long"}, {"k": "email", "label": "Email", "min": 120, "w": 8, "cls": "c-long"}, {"k": "genres", "label": "Genres", "min": 100, "w": 7, "cls": "c-mid"}, {"k": "games", "label": "Sample games", "min": 96, "w": 14, "cls": "c-long"}, {"k": "internship", "label": "Internship", "min": 104, "w": 3, "cls": "c-mid"}, {"k": "remote", "label": "Remote", "min": 86, "w": 2, "cls": "c-mid"}, {"k": "ownership", "label": "Ownership", "min": 100, "w": 6, "cls": "c-mid"}, {"k": "notes", "label": "Notes", "min": 118, "w": 22, "cls": "c-long"}];
 const T = {"records": "records", "sorted_by": "Sorted by", "sort_asc": "ascending", "sort_desc": "descending", "active_filters": "active filters", "sort_dir_label": "Toggle sort direction", "sort_by_col": "Sort by this column", "col_locked": "This column is always visible", "col_visible": "Show column", "move_up": "Move up", "move_down": "Move down", "columns_count": "columns visible", "all_regions": "All regions", "all_cities": "All cities", "all_genres": "All genres", "all_ownership": "All ownership types", "year_from": "from", "year_to": "to"};
 const LANG = "en";
 const SRC = "../data/turkey.en.json";
-const SKEY = "atlas-cols-turkey-en-v2";
+const SKEY = "atlas-cols-turkey-en-v3";
 const SKEY_OLD = "atlas-cols-turkey-en";
 
 const ALL_KEYS = CDEF.map(function(c){ return c.k; });
@@ -777,6 +779,18 @@ function cellHtml(r, k){
     const tip = host ? ' title="' + esc(host) + '"' : '';
     return '<a href="' + esc(r.web) + '" target="_blank" rel="noopener"' + tip + '>' +
       esc(r.company) + '</a>';
+  }
+  if (k === 'email') {
+    const raw = String(r.email || '').trim();
+    if (!raw || unknownish(raw)) return esc(raw || '—');
+    return raw.split(';').map(function(part){
+      const t = part.trim();
+      if (!t) return '';
+      const m = t.match(/^([^\s(;]+@[^\s(;]+)\s*(?:\(([^)]+)\))?/);
+      if (!m) return esc(t);
+      const role = m[2] ? ' <span class="em-role">(' + esc(m[2]) + ')</span>' : '';
+      return '<a class="em-link" href="mailto:' + esc(m[1]) + '">' + esc(m[1]) + '</a>' + role;
+    }).filter(Boolean).join('; ');
   }
   return esc(r[k]);
 }
