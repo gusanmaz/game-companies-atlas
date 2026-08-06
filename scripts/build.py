@@ -62,6 +62,15 @@ UI = {
         "contribute_footer": f'<a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">Katkı</a>',
         "columns_label": "Sütunlar",
         "lang_label": "Dil",
+        "filter_heading": "Ara ve filtrele",
+        "search_label": "Ara",
+        "region_label": "Bölge",
+        "sort_hint": "Sıralamak için sütun başlığına tıklayın",
+        "sorted_by": "Sıralama",
+        "sort_asc": "artan",
+        "sort_desc": "azalan",
+        "clear_filters": "Filtreleri temizle",
+        "active_filters": "aktif filtre",
     },
     "en": {
         "lang": "en",
@@ -104,6 +113,15 @@ UI = {
         "contribute_footer": f'<a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">Contribute</a>',
         "columns_label": "Columns",
         "lang_label": "Language",
+        "filter_heading": "Search and filter",
+        "search_label": "Search",
+        "region_label": "Region",
+        "sort_hint": "Click a column header to sort",
+        "sorted_by": "Sorted by",
+        "sort_asc": "ascending",
+        "sort_desc": "descending",
+        "clear_filters": "Clear filters",
+        "active_filters": "active filters",
     },
 }
 
@@ -152,16 +170,39 @@ border-radius:10px}
 .contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
 .contribute p{margin:0;color:var(--muted);font-size:.95rem}
 footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0 .8rem;align-items:center}
-.toolbar input,.toolbar select{font:inherit;padding:.55rem .75rem;border:1px solid var(--line);
-border-radius:8px;background:#fff;color:var(--ink)}
-.toolbar input{flex:1 1 240px}
-.toolbar select{min-width:180px}
-.count{color:var(--muted);font-size:.9rem}
+.controls{margin:1rem 0 1rem;padding:1rem 1.1rem;background:var(--card);border:1px solid var(--line);
+border-radius:12px;box-shadow:0 1px 3px rgba(30,58,95,.05)}
+.controls-head{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between;
+margin-bottom:.75rem}
+.controls-title{margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1.05rem;color:var(--navy)}
+.sort-hint{margin:0;font-size:.88rem;color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.field > span{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy2)}
+.toolbar input,.toolbar select{font:inherit;padding:.65rem .8rem;border:2px solid var(--line);
+border-radius:8px;background:#fff;color:var(--ink);min-height:2.6rem}
+.toolbar input:focus,.toolbar select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,58,95,.12)}
+.field-search{flex:1 1 280px}
+.field-region{flex:0 1 220px}
+.field-region select{min-width:200px;width:100%}
+.field-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding-bottom:1px}
+.btn-ghost{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .85rem;border-radius:8px;
+border:2px solid var(--navy);color:var(--navy);background:#fff;font:inherit;font-weight:700;font-size:.9rem;
+cursor:pointer}
+.btn-ghost:hover{background:var(--chip)}
+.btn-ghost[hidden]{display:none!important}
+.status-row{display:flex;flex-wrap:wrap;gap:.5rem .85rem;align-items:center;margin-top:.75rem;
+padding-top:.7rem;border-top:1px dashed var(--line)}
+.count{color:var(--ink);font-size:.92rem;font-weight:700}
+.sort-status{display:inline-flex;align-items:center;gap:.35rem;padding:.28rem .65rem;border-radius:999px;
+background:var(--chip);border:1px solid var(--navy);color:var(--navy);font-size:.85rem;font-weight:700}
+.filter-pill{display:inline-flex;align-items:center;padding:.28rem .65rem;border-radius:999px;
+background:#fff4d6;border:1px solid var(--warn-line);color:var(--warn);font-size:.85rem;font-weight:700}
+.filter-pill[hidden]{display:none!important}
 .col-toggle{position:relative}
 .col-toggle > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;
-padding:.45rem .85rem;border-radius:8px;border:1px solid var(--navy);color:var(--navy);background:#fff;
-font-weight:600;font-size:.92rem;user-select:none}
+padding:.55rem .85rem;border-radius:8px;border:2px solid var(--navy);color:var(--navy);background:#fff;
+font-weight:700;font-size:.9rem;user-select:none;min-height:2.6rem}
 .col-toggle > summary::-webkit-details-marker{display:none}
 .col-toggle[open] > summary{background:var(--chip)}
 .col-panel{position:absolute;right:0;top:calc(100% + .35rem);z-index:20;min-width:220px;
@@ -173,10 +214,18 @@ box-shadow:0 8px 24px rgba(30,58,95,.12);display:grid;gap:.35rem}
 table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;font-size:13px}
 th,td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 th{position:sticky;top:0;background:#eef2f7;color:var(--muted);font-size:11.5px;text-transform:uppercase;
-letter-spacing:.05em;z-index:2;cursor:pointer;user-select:none;white-space:nowrap}
+letter-spacing:.05em;z-index:2;cursor:pointer;user-select:none;white-space:nowrap;
+border-bottom:2px solid var(--line);transition:background .15s,color .15s}
+th .th-inner{display:inline-flex;align-items:center;gap:.35rem}
+th .sort-ico{font-size:.85rem;opacity:.35;color:var(--navy)}
+th:hover{background:#e2eaf4;color:var(--navy)}
+th:hover .sort-ico{opacity:.7}
+th[aria-sort=ascending],th[aria-sort=descending]{background:var(--navy);color:#fff;border-bottom-color:var(--navy)}
+th[aria-sort=ascending] .sort-ico,th[aria-sort=descending] .sort-ico{opacity:1;color:#fff}
 th:first-child,td:first-child{position:sticky;left:0;background:#fff;z-index:1;min-width:200px;max-width:220px;
 box-shadow:2px 0 0 var(--line);font-weight:600}
 th:first-child{z-index:3;background:#eef2f7}
+th:first-child[aria-sort=ascending],th:first-child[aria-sort=descending]{background:var(--navy);color:#fff}
 th.col-hide,td.col-hide{display:none}
 tr:hover td{background:#f7fafc}
 tr:hover td:first-child{background:#f0f5f9}
@@ -354,15 +403,37 @@ def build_list_page(lang: str, which: str) -> str:
   </header>
   <div class="warn disclaimer">{u['disclaimer']}</div>
   <div class="warn">{warn} {u['unknown_note']}</div>
-  <div class="toolbar">
-    <input id="q" type="search" placeholder="{u['search']}" autocomplete="off"/>
-    <select id="region"><option value="">{u['all_regions']}</option></select>
-    <details class="col-toggle" id="colToggle">
-      <summary>{u['columns_label']}</summary>
-      <div class="col-panel" id="colPanel"></div>
-    </details>
-    <span class="count" id="count">…</span>
-  </div>
+  <section class="controls" aria-label="{u['filter_heading']}">
+    <div class="controls-head">
+      <h2 class="controls-title">{u['filter_heading']}</h2>
+      <p class="sort-hint">{u['sort_hint']}</p>
+    </div>
+    <div class="toolbar">
+      <label class="field field-search">
+        <span>{u['search_label']}</span>
+        <input id="q" type="search" placeholder="{u['search']}" autocomplete="off"/>
+      </label>
+      <label class="field field-region">
+        <span>{u['region_label']}</span>
+        <select id="region"><option value="">{u['all_regions']}</option></select>
+      </label>
+      <div class="field field-actions">
+        <span>&nbsp;</span>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center">
+          <button type="button" class="btn-ghost" id="clearFilters" hidden>{u['clear_filters']}</button>
+          <details class="col-toggle" id="colToggle">
+            <summary>{u['columns_label']}</summary>
+            <div class="col-panel" id="colPanel"></div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="status-row">
+      <span class="count" id="count">…</span>
+      <span class="sort-status" id="sortStatus"></span>
+      <span class="filter-pill" id="filterPill" hidden></span>
+    </div>
+  </section>
   <div class="table-wrap">
     <table>
       <thead><tr id="head"></tr></thead>
@@ -378,6 +449,10 @@ const KEYS = {keys_json};
 const DEFAULT_VISIBLE = {defaults_json};
 const STORAGE_KEY = {json.dumps(storage_key)};
 const RECORDS_LABEL = {json.dumps(u['records'], ensure_ascii=False)};
+const SORTED_BY = {json.dumps(u['sorted_by'], ensure_ascii=False)};
+const SORT_ASC = {json.dumps(u['sort_asc'], ensure_ascii=False)};
+const SORT_DESC = {json.dumps(u['sort_desc'], ensure_ascii=False)};
+const ACTIVE_FILTERS = {json.dumps(u['active_filters'], ensure_ascii=False)};
 let rows = [];
 let sortKey = 'company';
 let sortDir = 1;
@@ -385,6 +460,11 @@ let visible = new Set(DEFAULT_VISIBLE);
 
 function esc(s){{
   return String(s||'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+
+function colLabel(k){{
+  const i = KEYS.indexOf(k);
+  return i >= 0 ? COLS[i] : k;
 }}
 
 function loadVisible(){{
@@ -428,16 +508,25 @@ function renderColPanel(){{
   }});
 }}
 
+function sortIcon(k){{
+  if (sortKey !== k) return '↕';
+  return sortDir === 1 ? '↑' : '↓';
+}}
+
 function renderHead(){{
   const tr = document.getElementById('head');
   tr.innerHTML = COLS.map((c,i) => {{
-    const hide = isVisible(KEYS[i]) ? '' : ' col-hide';
-    return `<th class="${{hide.trim()}}" data-k="${{KEYS[i]}}">${{esc(c)}}</th>`;
+    const k = KEYS[i];
+    const hide = isVisible(k) ? '' : ' col-hide';
+    let aria = 'none';
+    if (sortKey === k) aria = sortDir === 1 ? 'ascending' : 'descending';
+    return `<th class="${{hide.trim()}}" data-k="${{k}}" aria-sort="${{aria}}" title="${{esc(c)}} — ${{esc(SORTED_BY)}}"><span class="th-inner">${{esc(c)}}<span class="sort-ico" aria-hidden="true">${{sortIcon(k)}}</span></span></th>`;
   }}).join('');
   tr.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {{
     if (th.classList.contains('col-hide')) return;
     const k = th.dataset.k;
     if (sortKey === k) sortDir *= -1; else {{ sortKey = k; sortDir = 1; }}
+    renderHead();
     render();
   }}));
 }}
@@ -458,9 +547,31 @@ function filtered(){{
   }});
 }}
 
+function updateStatus(listLen){{
+  document.getElementById('count').textContent = listLen + ' / ' + rows.length + ' ' + RECORDS_LABEL;
+  const dirLabel = sortDir === 1 ? SORT_ASC : SORT_DESC;
+  document.getElementById('sortStatus').textContent =
+    SORTED_BY + ': ' + colLabel(sortKey) + ' (' + dirLabel + ')';
+  const q = (document.getElementById('q').value || '').trim();
+  const region = document.getElementById('region').value;
+  let n = 0;
+  if (q) n += 1;
+  if (region) n += 1;
+  const pill = document.getElementById('filterPill');
+  const clearBtn = document.getElementById('clearFilters');
+  if (n) {{
+    pill.hidden = false;
+    pill.textContent = n + ' ' + ACTIVE_FILTERS;
+    clearBtn.hidden = false;
+  }} else {{
+    pill.hidden = true;
+    clearBtn.hidden = true;
+  }}
+}}
+
 function render(){{
   const list = filtered();
-  document.getElementById('count').textContent = list.length + ' / ' + rows.length + ' ' + RECORDS_LABEL;
+  updateStatus(list.length);
   document.getElementById('body').innerHTML = list.map(r => {{
     const name = r.web ? `<a href="${{esc(r.web)}}" target="_blank" rel="noopener">${{esc(r.company)}}</a>` : esc(r.company);
     const cells = KEYS.map((k,i) => {{
@@ -488,8 +599,15 @@ async function boot(){{
     o.value = r; o.textContent = r; sel.appendChild(o);
   }});
   renderHead();
-  document.getElementById('q').addEventListener('input', render);
+  const q = document.getElementById('q');
+  q.addEventListener('input', render);
   sel.addEventListener('change', render);
+  document.getElementById('clearFilters').addEventListener('click', () => {{
+    q.value = '';
+    sel.value = '';
+    render();
+    q.focus();
+  }});
   document.addEventListener('click', (e) => {{
     const details = document.getElementById('colToggle');
     if (details && details.open && !details.contains(e.target)) details.open = false;
