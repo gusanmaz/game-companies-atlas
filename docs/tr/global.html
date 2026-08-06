@@ -203,6 +203,17 @@ function colLabel(k){
   return i >= 0 ? COLS[i] : k;
 }
 
+// Diacritic-insensitive key so "istanbul" matches "İstanbul" and "sehir" matches "şehir".
+function norm(s){
+  return String(s||'')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ı/g, 'i');
+}
+
+const collator = new Intl.Collator('tr', { numeric: true, sensitivity: 'base' });
+
 function loadVisible(){
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -268,18 +279,19 @@ function renderHead(){
 }
 
 function filtered(){
-  const q = (document.getElementById('q').value || '').toLowerCase().trim();
+  const q = norm(document.getElementById('q').value.trim());
   const region = document.getElementById('region').value;
   return rows.filter(r => {
     if (region && r.region !== region) return false;
     if (!q) return true;
-    return KEYS.some(k => String(r[k]||'').toLowerCase().includes(q)) || String(r.web||'').toLowerCase().includes(q);
+    return KEYS.some(k => norm(r[k]).includes(q)) || norm(r.web).includes(q);
   }).sort((a,b) => {
-    const av = String(a[sortKey]||'').toLowerCase();
-    const bv = String(b[sortKey]||'').toLowerCase();
-    if (av < bv) return -1 * sortDir;
-    if (av > bv) return 1 * sortDir;
-    return 0;
+    const av = String(a[sortKey]||'');
+    const bv = String(b[sortKey]||'');
+    // Empty values always sort last, regardless of direction.
+    if (!av && bv) return 1;
+    if (av && !bv) return -1;
+    return collator.compare(av, bv) * sortDir;
   });
 }
 
