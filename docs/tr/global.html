@@ -241,7 +241,7 @@ color:var(--warn);font-weight:600}
           <select id="f-owner"><option value="">Tüm sahiplik türleri</option></select>
         </label>
         <div class="field">
-          <span class="flabel">Kuruluş yılı</span>
+          <span class="flabel">Kuruluş yılı<span id="yearRange"></span></span>
           <div class="pair">
             <input id="f-yfrom" type="number" inputmode="numeric" placeholder="en erken"
                    aria-label="Kuruluş yılı — en erken"/>
@@ -703,8 +703,9 @@ function buildFilterOptions(){
     const hi = Math.max.apply(null, years);
     $('f-yfrom').min = String(lo); $('f-yfrom').max = String(hi);
     $('f-yto').min = String(lo); $('f-yto').max = String(hi);
-    $('f-yfrom').placeholder = T.year_from + ' ' + lo;
-    $('f-yto').placeholder = T.year_to + ' ' + hi;
+    // The two year boxes are too narrow to spell the range out as placeholder
+    // text, so the span in the field label carries it instead.
+    $('yearRange').textContent = ' (' + lo + '\u2013' + hi + ')';
   }
 }
 

@@ -943,8 +943,9 @@ function buildFilterOptions(){
     const hi = Math.max.apply(null, years);
     $('f-yfrom').min = String(lo); $('f-yfrom').max = String(hi);
     $('f-yto').min = String(lo); $('f-yto').max = String(hi);
-    $('f-yfrom').placeholder = T.year_from + ' ' + lo;
-    $('f-yto').placeholder = T.year_to + ' ' + hi;
+    // The two year boxes are too narrow to spell the range out as placeholder
+    // text, so the span in the field label carries it instead.
+    $('yearRange').textContent = ' (' + lo + '\u2013' + hi + ')';
   }
 }
 
@@ -1233,7 +1234,7 @@ def build_list_page(lang: str, which: str) -> str:
           <select id="f-owner"><option value="">{u['all_ownership']}</option></select>
         </label>
         <div class="field">
-          <span class="flabel">{u['founded_label']}</span>
+          <span class="flabel">{u['founded_label']}<span id="yearRange"></span></span>
           <div class="pair">
             <input id="f-yfrom" type="number" inputmode="numeric" placeholder="{u['year_from']}"
                    aria-label="{u['founded_label']} — {u['year_from']}"/>
