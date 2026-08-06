@@ -55,7 +55,16 @@ font-size:.92rem;color:var(--muted)}
 border-radius:10px}
 .contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
 .contribute p{margin:0;color:var(--muted);font-size:.95rem}
-footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer.site-foot{margin-top:2.4rem;padding:1.15rem 0 0;border-top:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:.85rem 1.4rem;align-items:center;justify-content:space-between}
+.foot-meta{margin:0;color:var(--muted);font-size:.86rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.foot-links a{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:8px;
+border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:600;font-size:.88rem;
+text-decoration:none;box-shadow:var(--shadow)}
+.foot-links a:hover{border-color:var(--navy);background:var(--chip);text-decoration:none}
+.foot-links a.primary{border-color:var(--navy);background:var(--navy);color:#fff}
+.foot-links a.primary:hover{background:var(--navy2);border-color:var(--navy2)}
 /* ── search & filter panel ─────────────────────────────── */
 .controls{padding:1rem 1.1rem 1.05rem;background:var(--card);border:1px solid var(--line);
 border-radius:var(--r);box-shadow:var(--shadow)}
@@ -319,8 +328,7 @@ color:var(--warn);font-weight:600}
       <strong>No records match these filters.</strong>Try a shorter search term or clear the filters.
     </div>
   </div>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
-  · <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a></footer>
+  <footer class="site-foot"><p class="foot-meta">Hosted on GitHub Pages</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Source code</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide</a></nav></footer>
 </div>
 <script>
 const CDEF = [{"k": "company", "label": "Company", "min": 94, "w": 30, "cls": "c-name"}, {"k": "region", "label": "Region", "min": 88, "w": 4, "cls": "c-mid"}, {"k": "city", "label": "City", "min": 94, "w": 6, "cls": "c-mid"}, {"k": "founded", "label": "Founded", "min": 88, "w": 2, "cls": "c-num"}, {"k": "employees", "label": "Employees", "min": 100, "w": 3, "cls": "c-num"}, {"k": "funding", "label": "Revenue / funding", "min": 92, "w": 11, "cls": "c-long"}, {"k": "genres", "label": "Genres", "min": 100, "w": 8, "cls": "c-mid"}, {"k": "games", "label": "Sample games", "min": 96, "w": 13, "cls": "c-long"}, {"k": "internship", "label": "Internship", "min": 104, "w": 3, "cls": "c-mid"}, {"k": "remote", "label": "Remote", "min": 86, "w": 2, "cls": "c-mid"}, {"k": "ownership", "label": "Ownership", "min": 100, "w": 7, "cls": "c-mid"}, {"k": "notes", "label": "Notes", "min": 118, "w": 25, "cls": "c-long"}];
@@ -763,9 +771,12 @@ function clearFilters(){
 
 function cellHtml(r, k){
   if (k === 'company') {
-    return r.web
-      ? '<a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.company) + '</a>'
-      : esc(r.company);
+    if (!r.web) return esc(r.company);
+    let host = '';
+    try { host = new URL(r.web).hostname.replace(/^www\./,''); } catch (e) {}
+    const tip = host ? ' title="' + esc(host) + '"' : '';
+    return '<a href="' + esc(r.web) + '" target="_blank" rel="noopener"' + tip + '>' +
+      esc(r.company) + '</a>';
   }
   return esc(r[k]);
 }

@@ -1,4 +1,4 @@
-﻿Company,Region,City,Founded,Employees,Revenue_funding,Web,Genres,Sample_games,Internship,Remote,Ownership,Notes
+Company,Region,City,Founded,Employees,Revenue_funding,Web,Genres,Sample_games,Internship,Remote,Ownership,Notes
 2K,US / Canada (+ first-party extensions),"Novato, CA (USA)",2005,thousands,NBA 2K + Borderlands etc.,https://2k.com,publishing; sports; shooter,NBA 2K; Borderlands; Civilization (Firaxis),unknown,mixed,Take-Two,"Publishing + studio network (Firaxis, Hangar 13, Visual Concepts)."
 3D Realms,US / Canada (+ first-party extensions),Richardson / Aalborg (USA/DK),1987 (Apogee),~30-60,Duke Nukem; Ion Fury publishing,https://3drealms.com,FPS / publishing,Duke Nukem 3D; Ion Fury; Wrath,unknown,hybrid,independent (DNA/Embracer periodic),Apogee legacy; boomer shooter publishing.
 Activision,US / Canada (+ first-party extensions),"Santa Monica, CA (USA)",1979,thousands (within MS Gaming),Call of Duty annual billions $,https://www.activision.com,AAA FPS / live service,Call of Duty series,unknown (Microsoft internship channels),office weighted,Microsoft,COD franchise; Infinity Ward / Treyarch / Raven network.
@@ -875,3 +875,4 @@ UKIE,Ecosystem / fair / association,London (UK),1989,—,—,https://ukie.org.uk
 Unity Unite,Ecosystem / fair / association,global,2007,—,—,https://unity.com/events/unite,developer conference,—,—,—,Unity,Unity developer conference.
 Unreal Fest,Ecosystem / fair / association,global,—,—,—,https://www.unrealengine.com/events,developer conference,—,—,—,Epic Games,Unreal Engine events.
 White Nights Conference,Ecosystem / fair / association,Belgrade / global,2012,—,—,https://wnconf.com,B2B conference,—,—,—,private,Game B2B conference.
+Iron Games,Europe / Israel,London (UK),2023,unknown,"$4M (Arcadia Gaming Partners, 2025)",https://iron.gs/,mobile casual / merge / word,Tic Tac No!; Spellie; Champions of Valhalla,unknown,unknown,independent,"Turkish founders from Gram Games (Eren Yanık, Remzi Şenel); London-based."

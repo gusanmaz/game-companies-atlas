@@ -55,7 +55,16 @@ font-size:.92rem;color:var(--muted)}
 border-radius:10px}
 .contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
 .contribute p{margin:0;color:var(--muted);font-size:.95rem}
-footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer.site-foot{margin-top:2.4rem;padding:1.15rem 0 0;border-top:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:.85rem 1.4rem;align-items:center;justify-content:space-between}
+.foot-meta{margin:0;color:var(--muted);font-size:.86rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.foot-links a{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:8px;
+border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:600;font-size:.88rem;
+text-decoration:none;box-shadow:var(--shadow)}
+.foot-links a:hover{border-color:var(--navy);background:var(--chip);text-decoration:none}
+.foot-links a.primary{border-color:var(--navy);background:var(--navy);color:#fff}
+.foot-links a.primary:hover{background:var(--navy2);border-color:var(--navy2)}
 /* ── search & filter panel ─────────────────────────────── */
 .controls{padding:1rem 1.1rem 1.05rem;background:var(--card);border:1px solid var(--line);
 border-radius:var(--r);box-shadow:var(--shadow)}
@@ -208,14 +217,14 @@ color:var(--warn);font-weight:600}
   </div>
   <header class="hero">
     <h1>Game Companies Atlas</h1>
-    <p class="lead">219 companies in Türkiye and 876 global studios/publishers (excl. Türkiye), with internship, remote work, ownership and sample games.</p>
+    <p class="lead">222 companies in Türkiye and 877 global studios/publishers (excl. Türkiye), with internship, remote work, ownership and sample games.</p>
     <p class="by">Güvenç Usanmaz · August 2026</p>
   </header>
   <div class="warn disclaimer">Disclaimer: This directory may contain gaps or inaccuracies. Headcount, revenue/funding and internship figures are often estimates or drawn from public sources and may be outdated. There is no warranty or guarantee of completeness or correctness.</div>
   <section class="grid">
     <article class="card">
       <h2>Türkiye companies</h2>
-      <p class="meta">219 records</p>
+      <p class="meta">222 records</p>
       <div class="actions">
         <a class="btn primary" href="turkey.html">Browse table</a>
       </div>
@@ -229,7 +238,7 @@ color:var(--warn);font-weight:600}
     </article>
     <article class="card">
       <h2>Global companies</h2>
-      <p class="meta">876 records</p>
+      <p class="meta">877 records</p>
       <div class="actions">
         <a class="btn primary" href="global.html">Browse table</a>
       </div>
@@ -246,8 +255,7 @@ color:var(--warn);font-weight:600}
     <h2>Contribute</h2>
     <p>Corrections, missing companies and fresher public data are welcome. See the <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing guide</a>.</p>
   </section>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
-  · <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a></footer>
+  <footer class="site-foot"><p class="foot-meta">Hosted on GitHub Pages</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Source code</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide</a></nav></footer>
 </div>
 
 </body>

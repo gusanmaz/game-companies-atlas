@@ -55,7 +55,16 @@ font-size:.92rem;color:var(--muted)}
 border-radius:10px}
 .contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
 .contribute p{margin:0;color:var(--muted);font-size:.95rem}
-footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer.site-foot{margin-top:2.4rem;padding:1.15rem 0 0;border-top:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:.85rem 1.4rem;align-items:center;justify-content:space-between}
+.foot-meta{margin:0;color:var(--muted);font-size:.86rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.foot-links a{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:8px;
+border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:600;font-size:.88rem;
+text-decoration:none;box-shadow:var(--shadow)}
+.foot-links a:hover{border-color:var(--navy);background:var(--chip);text-decoration:none}
+.foot-links a.primary{border-color:var(--navy);background:var(--navy);color:#fff}
+.foot-links a.primary:hover{background:var(--navy2);border-color:var(--navy2)}
 /* ── search & filter panel ─────────────────────────────── */
 .controls{padding:1rem 1.1rem 1.05rem;background:var(--card);border:1px solid var(--line);
 border-radius:var(--r);box-shadow:var(--shadow)}
@@ -208,14 +217,14 @@ color:var(--warn);font-weight:600}
   </div>
   <header class="hero">
     <h1>Oyun Firmaları Atlası</h1>
-    <p class="lead">Türkiye’de 219, dünyada (TR hariç) 876 oyun stüdyosu/yayıncı kaydı. Staj, uzaktan çalışma, sahiplik ve örnek oyunlarla birlikte.</p>
+    <p class="lead">Türkiye’de 222, dünyada (TR hariç) 877 oyun stüdyosu/yayıncı kaydı. Staj, uzaktan çalışma, sahiplik ve örnek oyunlarla birlikte.</p>
     <p class="by">Güvenç Usanmaz · Ağustos 2026</p>
   </header>
   <div class="warn disclaimer">Uyarı: Bu dizin eksik veya hatalı kayıtlar içerebilir. Çalışan sayısı, gelir/fon ve staj bilgileri çoğunlukla tahmindir veya kamuya açık kaynaklardan alınmıştır; güncelliğini yitirmiş olabilir. Tamlık veya doğruluk konusunda garanti veya teminat yoktur.</div>
   <section class="grid">
     <article class="card">
       <h2>Türkiye firmaları</h2>
-      <p class="meta">219 kayıt</p>
+      <p class="meta">222 kayıt</p>
       <div class="actions">
         <a class="btn primary" href="turkey.html">Tabloda gez</a>
       </div>
@@ -229,7 +238,7 @@ color:var(--warn);font-weight:600}
     </article>
     <article class="card">
       <h2>Küresel firmalar</h2>
-      <p class="meta">876 kayıt</p>
+      <p class="meta">877 kayıt</p>
       <div class="actions">
         <a class="btn primary" href="global.html">Tabloda gez</a>
       </div>
@@ -246,8 +255,7 @@ color:var(--warn);font-weight:600}
     <h2>Katkıda bulunun</h2>
     <p>Eksik firma, düzeltme veya güncel bilgi eklemek isterseniz katkılarınızı bekleriz. <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı rehberine</a> bakın.</p>
   </section>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
-  · <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı</a></footer>
+  <footer class="site-foot"><p class="foot-meta">GitHub Pages ile yayınlanır</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Kaynak kod</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı rehberi</a></nav></footer>
 </div>
 
 </body>

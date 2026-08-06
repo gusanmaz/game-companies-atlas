@@ -88,7 +88,9 @@ UI = {
             "Eksik firma, düzeltme veya güncel bilgi eklemek isterseniz katkılarınızı bekleriz. "
             f'<a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">Katkı rehberine</a> bakın.'
         ),
-        "contribute_footer": f'<a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">Katkı</a>',
+        "contribute_footer": "Katkı rehberi",
+        "footer_source": "Kaynak kod",
+        "footer_hosted": "GitHub Pages ile yayınlanır",
         "columns_label": "Sütunlar",
         "lang_label": "Dil",
         "filter_heading": "Ara ve filtrele",
@@ -175,7 +177,9 @@ UI = {
             "Corrections, missing companies and fresher public data are welcome. "
             f'See the <a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">contributing guide</a>.'
         ),
-        "contribute_footer": f'<a href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">Contribute</a>',
+        "contribute_footer": "Contributing guide",
+        "footer_source": "Source code",
+        "footer_hosted": "Hosted on GitHub Pages",
         "columns_label": "Columns",
         "lang_label": "Language",
         "filter_heading": "Search and filter",
@@ -282,7 +286,16 @@ font-size:.92rem;color:var(--muted)}
 border-radius:10px}
 .contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
 .contribute p{margin:0;color:var(--muted);font-size:.95rem}
-footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer.site-foot{margin-top:2.4rem;padding:1.15rem 0 0;border-top:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:.85rem 1.4rem;align-items:center;justify-content:space-between}
+.foot-meta{margin:0;color:var(--muted);font-size:.86rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.foot-links a{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:8px;
+border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:600;font-size:.88rem;
+text-decoration:none;box-shadow:var(--shadow)}
+.foot-links a:hover{border-color:var(--navy);background:var(--chip);text-decoration:none}
+.foot-links a.primary{border-color:var(--navy);background:var(--navy);color:#fff}
+.foot-links a.primary:hover{background:var(--navy2);border-color:var(--navy2)}
 /* ── search & filter panel ─────────────────────────────── */
 .controls{padding:1rem 1.1rem 1.05rem;background:var(--card);border:1px solid var(--line);
 border-radius:var(--r);box-shadow:var(--shadow)}
@@ -467,6 +480,22 @@ def write_json(name: str, lang: str, rows: list[dict]) -> None:
     dest.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
 
 
+REPO_URL = "https://github.com/gusanmaz/game-companies-atlas"
+
+
+def site_footer(lang: str) -> str:
+    u = UI[lang]
+    return (
+        f'<footer class="site-foot">'
+        f'<p class="foot-meta">{u["footer_hosted"]}</p>'
+        f'<nav class="foot-links" aria-label="footer">'
+        f'<a href="{REPO_URL}" target="_blank" rel="noopener">{u["footer_source"]}</a>'
+        f'<a class="primary" href="{CONTRIBUTE_URL}" target="_blank" rel="noopener">'
+        f'{u["contribute_footer"]}</a>'
+        f"</nav></footer>"
+    )
+
+
 def lang_switcher(lang: str, page: str) -> str:
     """Both language links always visible; active language marked with .on."""
     u = UI[lang]
@@ -552,8 +581,7 @@ def build_home(lang: str, counts: dict[str, int]) -> str:
     <h2>{u['contribute_title']}</h2>
     <p>{u['contribute_body']}</p>
   </section>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
-  · {u['contribute_footer']}</footer>
+  {site_footer(lang)}
 </div>
 """
     return page_shell(u["title_home"], body, lang)
@@ -1003,9 +1031,12 @@ function clearFilters(){
 
 function cellHtml(r, k){
   if (k === 'company') {
-    return r.web
-      ? '<a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.company) + '</a>'
-      : esc(r.company);
+    if (!r.web) return esc(r.company);
+    let host = '';
+    try { host = new URL(r.web).hostname.replace(/^www\./,''); } catch (e) {}
+    const tip = host ? ' title="' + esc(host) + '"' : '';
+    return '<a href="' + esc(r.web) + '" target="_blank" rel="noopener"' + tip + '>' +
+      esc(r.company) + '</a>';
   }
   return esc(r[k]);
 }
@@ -1312,8 +1343,7 @@ def build_list_page(lang: str, which: str) -> str:
       <strong>{u['no_results']}</strong>{u['no_results_hint']}
     </div>
   </div>
-  <footer>GitHub Pages · <a href="https://github.com/gusanmaz/game-companies-atlas">gusanmaz/game-companies-atlas</a>
-  · {u['contribute_footer']}</footer>
+  {site_footer(lang)}
 </div>
 <script>{script}</script>
 """
