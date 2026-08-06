@@ -5,7 +5,8 @@
 
 🌐 **[Browse / Gez](https://gusanmaz.github.io/game-companies-atlas/)** ·
 🇹🇷 [Türkçe](https://gusanmaz.github.io/game-companies-atlas/tr/) ·
-🇬🇧 [English](https://gusanmaz.github.io/game-companies-atlas/en/)
+🇬🇧 [English](https://gusanmaz.github.io/game-companies-atlas/en/) ·
+🤝 **[Contribute / Katkı ver](CONTRIBUTING.md)**
 
 ---
 
@@ -60,5 +61,34 @@ export OPENAI_API_KEY=...   # only needed to re-translate
 python3 scripts/translate.py
 python3 scripts/build.py
 ```
+
+## Corrections and additions / Düzeltme ve eklemeler
+
+Companies close, get acquired, move city and grow. If a record is out of date — or your studio is
+missing — please open an issue or a pull request. The one rule is that a claim must be backed by the
+company's own site or a named public source; where a fact is unknown, the record says so. The English
+fields are unreviewed machine translation, so **improving them is an excellent first contribution**.
+See **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
+Şirketler kapanır, satın alınır, şehir değiştirir, büyür. Güncel olmayan bir kayıt görürseniz ya da
+stüdyonuz listede yoksa lütfen issue veya pull request açın. Tek kural: her bilgi şirketin kendi
+sitesine ya da adı belli bir kamuya açık kaynağa dayanmalı; bilinmeyen alanlar "bilinmiyor" der.
+İngilizce alanlar gözden geçirilmemiş makine çevirisidir, **düzeltmek en iyi ilk katkıdır**. Türkçe
+pull request'ler de memnuniyetle karşılanır.
+
+## License / Lisans
+
+Content — the CSV data and everything generated from it (`catalogue/`, `docs/`) — is licensed under
+**[CC BY 4.0](LICENSE)**: reuse, adapt and redistribute freely, including commercially, as long as
+you give attribution.
+
+İçerik — CSV verisi ve ondan üretilen her şey — **[CC BY 4.0](LICENSE)** ile lisanslıdır: kaynak
+göstermek koşuluyla, ticari kullanım dahil, serbestçe kullanabilir, uyarlayabilir ve dağıtabilirsiniz.
+
+Suggested citation / Önerilen atıf:
+
+> Usanmaz, G. *Game Companies Atlas.* https://github.com/gusanmaz/game-companies-atlas (CC BY 4.0)
+
+## Who made this / Kim hazırladı
 
 Author: Güvenç Usanmaz · August 2026
