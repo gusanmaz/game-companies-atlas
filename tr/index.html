@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Oyun Firmaları Atlası — Türkiye ve küresel stüdyolar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a2330;--muted:#5a6575;--paper:#f4f1ea;--card:#fffdf8;--line:#d8d0c2;
+  --navy:#1e3a5f;--navy2:#2d5a87;--teal:#146b57;--teal2:#0e5544;--chip:#eef3f8;
+  --warn:#8a5a12;--warn-bg:#fff8eb;--warn-line:#d4a24a;
+  --r:10px;--shadow:0 1px 3px rgba(30,58,95,.07);--shadow-lg:0 12px 32px rgba(30,58,95,.16);
+  --ring:0 0 0 3px rgba(45,90,135,.32);--bleed:min(2100px,96vw);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);
+background:radial-gradient(1100px 480px at 8% -8%,#d7e6f5 0%,transparent 55%),
+radial-gradient(900px 420px at 100% 0%,#e7dfd1 0%,transparent 50%),var(--paper);line-height:1.55}
+a{color:var(--teal2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:2rem 1.15rem 3.5rem}
+@media(min-width:1400px){.wrap:not(.list){max-width:1400px}}
+/* A list page widens as one block, so the masthead rule, headings and notices
+   end on the same line as the table rather than floating in a narrower column. */
+@media(min-width:1100px){.wrap.list{max-width:var(--bleed)}}
+.bleed{margin-top:1.15rem}
+.top{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center;justify-content:space-between;
+margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:2px solid var(--navy)}
+.brand{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--navy);text-decoration:none}
+.nav{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center}
+.nav a,.btn{display:inline-flex;align-items:center;padding:.45rem .85rem;border-radius:8px;
+border:1px solid var(--navy);color:var(--navy);background:#fff;font-weight:600;font-size:.92rem;text-decoration:none}
+.nav a:hover,.btn:hover{background:var(--chip);text-decoration:none}
+.nav a.on,.btn.primary{background:var(--navy);color:#fff}
+.langs{display:inline-flex;gap:.35rem;margin-left:.25rem;padding-left:.55rem;border-left:1px solid var(--line)}
+.langs a{min-width:4.6rem;justify-content:center}
+.hero h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.8rem,4vw,2.55rem);
+margin:0 0 .5rem;color:var(--navy);letter-spacing:-.02em;line-height:1.15}
+.lead{margin:0;color:var(--muted);max-width:46rem;font-size:1.05rem}
+.by{margin:.8rem 0 0;font-weight:600;color:var(--navy)}
+.grid{display:grid;gap:1.1rem;margin-top:1.6rem}
+@media(min-width:780px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.3rem;
+box-shadow:0 1px 3px rgba(30,58,95,.06);display:flex;flex-direction:column;gap:.85rem}
+.card h2{font-family:"Source Serif 4",Georgia,serif;margin:0;font-size:1.25rem;color:var(--navy)}
+.meta{margin:0;color:var(--muted);font-size:.95rem}
+.actions{display:flex;flex-wrap:wrap;gap:.5rem}
+.dl{display:flex;flex-wrap:wrap;gap:.55rem .9rem;padding-top:.75rem;border-top:1px solid var(--line);
+font-size:.92rem;color:var(--muted)}
+.dl a{color:var(--navy);font-weight:600}
+.contribute{margin-top:1.5rem;padding:1.1rem 1.2rem;background:var(--card);border:1px solid var(--line);
+border-radius:10px}
+.contribute h2{font-family:"Source Serif 4",Georgia,serif;margin:0 0 .45rem;font-size:1.15rem;color:var(--navy)}
+.contribute p{margin:0;color:var(--muted);font-size:.95rem}
+footer.site-foot{margin-top:2.4rem;padding:1.15rem 0 0;border-top:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:.85rem 1.4rem;align-items:center;justify-content:space-between}
+.foot-meta{margin:0;color:var(--muted);font-size:.86rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.foot-links a{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:8px;
+border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:600;font-size:.88rem;
+text-decoration:none;box-shadow:var(--shadow)}
+.foot-links a:hover{border-color:var(--navy);background:var(--chip);text-decoration:none}
+.foot-links a.primary{border-color:var(--navy);background:var(--navy);color:#fff}
+.foot-links a.primary:hover{background:var(--navy2);border-color:var(--navy2)}
+/* ── search & filter panel ─────────────────────────────── */
+.controls{padding:1rem 1.1rem 1.05rem;background:var(--card);border:1px solid var(--line);
+border-radius:var(--r);box-shadow:var(--shadow)}
+.controls-head{display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:baseline;justify-content:space-between;
+margin-bottom:.85rem}
+.controls-title{margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1.08rem;color:var(--navy)}
+.sort-hint{margin:0;font-size:.86rem;color:var(--muted)}
+.filters{display:grid;gap:.7rem .8rem;grid-template-columns:repeat(auto-fit,minmax(176px,1fr))}
+.field{display:flex;flex-direction:column;gap:.28rem;min-width:0}
+.field > .flabel{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy2)}
+.field input,.field select{font:inherit;font-size:.94rem;padding:.5rem .6rem;border:1.5px solid var(--line);
+border-radius:8px;background:#fff;color:var(--ink);min-height:2.5rem;width:100%;min-width:0}
+.field input:focus,.field select:focus{outline:none;border-color:var(--navy);box-shadow:var(--ring)}
+@media(min-width:640px){.field-search{grid-column:span 2}}
+.pair{display:flex;gap:.4rem;align-items:center}
+.pair input{text-align:center}
+.pair select{flex:1 1 auto}
+.dir-btn{flex:0 0 auto;width:2.6rem;min-height:2.5rem;border:1.5px solid var(--navy);border-radius:8px;
+background:var(--navy);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;
+display:inline-flex;align-items:center;justify-content:center}
+.dir-btn:hover{background:var(--navy2)}
+.dir-btn:focus-visible{outline:none;box-shadow:var(--ring)}
+.controls-foot{display:flex;flex-wrap:wrap;gap:.6rem .9rem;align-items:center;justify-content:space-between;
+margin-top:.9rem;padding-top:.75rem;border-top:1px dashed var(--line)}
+.status-row{display:flex;flex-wrap:wrap;gap:.4rem .7rem;align-items:center}
+.btn-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.count{color:var(--ink);font-size:.92rem;font-weight:700}
+.count b{color:var(--navy);font-size:1.02rem}
+.sort-status{display:inline-flex;align-items:center;gap:.3rem;padding:.24rem .6rem;border-radius:999px;
+background:var(--chip);border:1px solid var(--navy2);color:var(--navy);font-size:.82rem;font-weight:700}
+.filter-pill{display:inline-flex;align-items:center;padding:.24rem .6rem;border-radius:999px;
+background:#fff4d6;border:1px solid var(--warn-line);color:var(--warn);font-size:.82rem;font-weight:700}
+.filter-pill[hidden]{display:none!important}
+.btn-ghost{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem .8rem;border-radius:8px;
+border:1.5px solid var(--navy);color:var(--navy);background:#fff;font:inherit;font-weight:700;font-size:.88rem;
+cursor:pointer}
+.btn-ghost:hover{background:var(--chip)}
+.btn-ghost:focus-visible{outline:none;box-shadow:var(--ring)}
+.btn-ghost[aria-expanded=true]{background:var(--navy);color:#fff}
+.btn-ghost[hidden]{display:none!important}
+/* ── column manager ────────────────────────────────────── */
+.colmgr{margin-top:.9rem;padding:.85rem .95rem 1rem;border:1.5px solid var(--navy2);border-radius:var(--r);
+background:#f7fafe}
+.colmgr[hidden]{display:none}
+.colmgr-head{display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center;justify-content:space-between}
+.colmgr-head h3{margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1rem;color:var(--navy)}
+.colmgr-hint{flex:1 1 100%;margin:.15rem 0 .7rem;font-size:.84rem;color:var(--muted)}
+.collist{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;
+grid-template-columns:repeat(auto-fill,minmax(232px,1fr))}
+.colitem{display:flex;align-items:center;gap:.4rem;padding:.32rem .45rem;background:#fff;
+border:1px solid var(--line);border-radius:8px}
+.colitem.dragging{opacity:.35}
+.colitem.over{border-color:var(--navy);box-shadow:var(--ring)}
+.colitem.off{background:#f2f1ee}
+.colitem.off label{color:var(--muted)}
+.colitem .idx{flex:0 0 1.4rem;height:1.4rem;border-radius:50%;background:var(--chip);color:var(--navy2);
+font-size:.7rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.colitem .grip{flex:0 0 auto;color:var(--muted);cursor:grab;font-size:1rem;line-height:1;padding:0 .1rem}
+.colitem label{display:flex;align-items:center;gap:.4rem;flex:1 1 auto;min-width:0;font-size:.88rem;
+font-weight:600;cursor:pointer}
+.colitem label .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.colitem input[type=checkbox]{flex:0 0 auto;width:1rem;height:1rem;accent-color:var(--navy)}
+.mini{flex:0 0 auto;width:1.7rem;height:1.7rem;border:1px solid var(--line);border-radius:6px;background:#fff;
+color:var(--navy);cursor:pointer;font-size:.78rem;line-height:1;padding:0;
+display:inline-flex;align-items:center;justify-content:center}
+.mini:hover:not(:disabled){background:var(--chip);border-color:var(--navy)}
+.mini:focus-visible{outline:none;box-shadow:var(--ring)}
+.mini:disabled{opacity:.28;cursor:default}
+/* ── table ─────────────────────────────────────────────── */
+.table-wrap{margin-top:.9rem;overflow:auto;max-height:min(74vh,880px);border:1px solid var(--line);
+border-radius:var(--r);background:#fff;box-shadow:var(--shadow);overscroll-behavior-x:contain}
+.table-wrap[hidden],.cards[hidden],.empty[hidden]{display:none!important}
+table.atlas{border-collapse:separate;border-spacing:0;table-layout:fixed;width:100%;
+min-width:var(--tmin,900px);font-size:13.5px}
+.atlas th,.atlas td{text-align:left;vertical-align:top;border-bottom:1px solid #e9e4da;overflow-wrap:anywhere}
+.atlas td{padding:8px 11px}
+.atlas td.c-num{font-variant-numeric:tabular-nums}
+.em-link{font-weight:600;word-break:break-all}
+.em-role{color:var(--muted);font-size:.88em;font-weight:500}
+.atlas thead th{position:sticky;top:0;z-index:3;padding:0;background:#e7edf5;
+border-bottom:2px solid var(--navy2)}
+.th-btn{display:flex;align-items:flex-start;gap:.3rem;width:100%;padding:9px 10px;border:0;background:transparent;
+font:inherit;font-size:11.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--navy2);
+text-align:left;cursor:pointer;line-height:1.25}
+/* Headers wrap rather than truncate: a clipped label hides which column you are
+   sorting, and forcing every label onto one line starves the data columns. */
+.th-btn .nm{flex:1 1 auto;min-width:0;overflow-wrap:break-word}
+.th-btn .ico{flex:0 0 auto;font-size:.9rem;opacity:.45}
+.th-btn:hover{background:#d7e2f0;color:var(--navy)}
+.th-btn:hover .ico{opacity:.9}
+.th-btn:focus-visible{outline:2px solid var(--navy);outline-offset:-3px}
+.atlas th[aria-sort=ascending],.atlas th[aria-sort=descending]{background:var(--navy)}
+.atlas th[aria-sort=ascending] .th-btn,.atlas th[aria-sort=descending] .th-btn{color:#fff}
+.atlas th[aria-sort=ascending] .th-btn:hover,.atlas th[aria-sort=descending] .th-btn:hover{background:var(--navy2)}
+.atlas th[aria-sort=ascending] .ico,.atlas th[aria-sort=descending] .ico{opacity:1}
+.atlas .stick{position:sticky;left:0;z-index:2;background:#fff;box-shadow:1px 0 0 var(--line)}
+.atlas thead th.stick{z-index:4;background:#e7edf5}
+.atlas tbody td.stick{font-weight:600}
+.atlas tbody tr:nth-child(even) td,.atlas tbody tr:nth-child(even) td.stick{background:#fbfaf7}
+.atlas tbody tr:hover td,.atlas tbody tr:hover td.stick{background:#edf3fb}
+.atlas tbody td.sorted{background:#eaf1fa}
+.atlas tbody tr:nth-child(even) td.sorted{background:#e5eef9}
+.atlas tbody tr:hover td.sorted{background:#dde9f7}
+/* ── card list (small screens) ─────────────────────────── */
+.cards{display:grid;gap:.7rem;margin-top:.9rem}
+.rowcard{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy2);
+border-radius:var(--r);padding:.8rem .9rem;box-shadow:var(--shadow)}
+.rowcard h3{margin:0 0 .55rem;font-family:"Source Serif 4",Georgia,serif;font-size:1.05rem;
+line-height:1.25;color:var(--navy)}
+.rowcard dl{display:grid;grid-template-columns:minmax(5rem,7rem) 1fr;gap:.3rem .7rem;margin:0;font-size:.9rem}
+.rowcard dt{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+color:var(--navy2);padding-top:.18rem}
+.rowcard dd{margin:0;overflow-wrap:anywhere}
+@media(max-width:400px){
+  .rowcard dl{grid-template-columns:1fr;gap:.05rem}
+  .rowcard dd{margin:0 0 .4rem}
+}
+.empty{margin-top:.9rem;padding:2.4rem 1rem;text-align:center;color:var(--muted);background:#fff;
+border:1px dashed var(--line);border-radius:var(--r)}
+.empty strong{display:block;margin-bottom:.25rem;color:var(--ink);font-size:1.05rem}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;background:var(--chip);color:var(--muted);border:1px solid var(--line)}
+.warn{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:8px;
+padding:.85rem 1rem;margin:0 0 .75rem;color:var(--muted);font-size:.93rem}
+.warn.disclaimer{background:var(--warn-bg);border-color:var(--warn-line);border-left-color:var(--warn);
+color:var(--warn);font-weight:600}
+@media(max-width:560px){
+  .wrap{padding:1.25rem .8rem 2.5rem}
+  .controls{padding:.85rem .8rem .9rem}
+  .filters{gap:.6rem;grid-template-columns:1fr 1fr}
+  .field-search{grid-column:span 2}
+  .btn-row,.status-row{width:100%}
+  .btn-ghost{flex:1 1 auto;justify-content:center}
+  .collist{grid-template-columns:1fr}
+}
+@media(max-width:380px){.filters{grid-template-columns:1fr}.field-search{grid-column:span 1}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="index.html">Oyun Firmaları Atlası</a>
+    <nav class="nav">
+      <a class="on" href="index.html">Ana sayfa</a>
+      <a href="turkey.html">Türkiye firmaları</a>
+      <a href="global.html">Küresel firmalar</a>
+      <span class="langs" role="navigation" aria-label="Dil">
+        <a class="on" href="../tr/index.html" hreflang="tr" lang="tr">Türkçe</a>
+        <a class="" href="../en/index.html" hreflang="en" lang="en">English</a>
+      </span>
+    </nav>
+  </div>
+  <header class="hero">
+    <h1>Oyun Firmaları Atlası</h1>
+    <p class="lead">Türkiye’de 222, dünyada (TR hariç) 877 oyun stüdyosu/yayıncı kaydı. Staj, uzaktan çalışma, sahiplik ve örnek oyunlarla birlikte.</p>
+    <p class="by">Güvenç Usanmaz · Ağustos 2026</p>
+  </header>
+  <div class="warn disclaimer">Uyarı: Bu dizin eksik veya hatalı kayıtlar içerebilir. Çalışan sayısı, gelir/fon ve staj bilgileri çoğunlukla tahmindir veya kamuya açık kaynaklardan alınmıştır; güncelliğini yitirmiş olabilir. Tamlık veya doğruluk konusunda garanti veya teminat yoktur.</div>
+  <section class="grid">
+    <article class="card">
+      <h2>Türkiye firmaları</h2>
+      <p class="meta">222 kayıt</p>
+      <div class="actions">
+        <a class="btn primary" href="turkey.html">Tabloda gez</a>
+      </div>
+      <div class="dl">
+        <span>İndir:</span>
+        <a href="../files/TURKEY.tr.md">Markdown</a>
+        <a href="../files/turkey.tr.csv">CSV</a>
+        <a href="../files/turkey.tr.xlsx">Excel</a>
+        <a href="../files/turkey.tr.pdf">PDF</a>
+      </div>
+    </article>
+    <article class="card">
+      <h2>Küresel firmalar</h2>
+      <p class="meta">877 kayıt</p>
+      <div class="actions">
+        <a class="btn primary" href="global.html">Tabloda gez</a>
+      </div>
+      <div class="dl">
+        <span>İndir:</span>
+        <a href="../files/GLOBAL.tr.md">Markdown</a>
+        <a href="../files/global.tr.csv">CSV</a>
+        <a href="../files/global.tr.xlsx">Excel</a>
+        <a href="../files/global.tr.pdf">PDF</a>
+      </div>
+    </article>
+  </section>
+  <section class="contribute">
+    <h2>Katkıda bulunun</h2>
+    <p>Eksik firma, düzeltme veya güncel bilgi eklemek isterseniz katkılarınızı bekleriz. <a href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı rehberine</a> bakın.</p>
+  </section>
+  <footer class="site-foot"><p class="foot-meta">GitHub Pages ile yayınlanır</p><nav class="foot-links" aria-label="footer"><a href="https://github.com/gusanmaz/game-companies-atlas" target="_blank" rel="noopener">Kaynak kod</a><a class="primary" href="https://github.com/gusanmaz/game-companies-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Katkı rehberi</a></nav></footer>
+</div>
+
+</body>
+</html>
